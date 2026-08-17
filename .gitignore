@@ -1,0 +1,10 @@
+# Build artifacts
+*.zip
+
+# Local Claude Code tooling, not site content
+.claude/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
