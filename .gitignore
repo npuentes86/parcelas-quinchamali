@@ -1,14 +1,14 @@
-# Build artifacts
-*.zip
-
-# Local Claude Code tooling, not site content
-.claude/
-
-# OS cruft
+# sistema
 .DS_Store
 Thumbs.db
-desktop.ini
+*~
 
-# Dependencias de test (playwright), no son parte del sitio
-node_modules/
-package-lock.json
+# python
+__pycache__/
+*.pyc
+
+# generado por build.py — se publica como Artifact, no se versiona
+dist/
+
+# copia intacta del zip original, solo local
+_original/

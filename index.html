@@ -3,362 +3,417 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parcelas Santa Rita — Terrenos en venta en Quinchamalí, Ñuble, Chile</title>
-<meta name="description" content="Parcelas Santa Rita — parcelas de agrado en venta en Quinchamalí, Chillán, Región de Ñuble. 17 lotes, 12 disponibles. Acceso por camino público y venta directa.">
-<link rel="preconnect" href="https://images.unsplash.com">
+<title>Parcelas Santa Rita</title>
+<meta name="description" content="Parcelas de agrado en Quinchamalí, Chillán, Región de Ñuble. 17 lotes de ≈5.000 m² a UF 620, con título saneado y acceso por camino público. Venta directa.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#3a3f26">
-<link rel="canonical" href="https://parcelasquinchamali.cl/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Parcelas Santa Rita">
 <meta property="og:title" content="Parcelas Santa Rita — Quinchamalí, Ñuble">
-<meta property="og:description" content="Parcelas de agrado en Quinchamalí, Chillán. 17 lotes, 12 disponibles. Venta directa, acceso por camino público.">
+<meta property="og:description" content="17 parcelas de ≈5.000 m² en Quinchamalí, Chillán. UF 620 cada una. Título saneado, venta directa.">
 <meta property="og:locale" content="es_CL">
-<meta property="og:url" content="https://parcelasquinchamali.cl/">
-<meta property="og:image" content="https://parcelasquinchamali.cl/images/og-image.jpg">
+<meta property="og:url" content="https://npuentes86.github.io/parcelas-quinchamali/">
+<meta property="og:image" content="https://npuentes86.github.io/parcelas-quinchamali/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;700;800&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#top" class="logo">Parcelas <span>Santa Rita</span></a>
-    <nav class="main-nav">
+    <a href="#inicio" class="logo">Parcelas <b>Santa Rita</b></a>
+    <nav class="main-nav" aria-label="Principal">
       <a href="#parcelas">Parcelas</a>
+      <a href="#plano">Plano</a>
+      <a href="#confianza">Garantías</a>
       <a href="#ubicacion">Ubicación</a>
-      <a href="#confianza">Por qué nosotros</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a href="https://wa.me/19084008492" class="btn btn-whatsapp header-cta" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.08c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
+    <a class="btn btn-wa header-cta" data-wa href="#contacto" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.08c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
       WhatsApp
     </a>
   </div>
 </header>
 
-<div class="mobile-cta-bar">
-  <a href="https://wa.me/19084008492" class="btn btn-whatsapp" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.08c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
-    WhatsApp
-  </a>
-  <a href="#contacto" class="btn btn-submit">Pedir ficha del loteo</a>
+<div class="barra-movil">
+  <a class="btn btn-wa" data-wa href="#contacto" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-greda" href="#contacto">Pedir la ficha</a>
 </div>
 
-<main id="top">
-  <!-- HERO -->
+<main id="inicio">
+
+  <!-- ══ HERO ═══════════════════════════════════════════ -->
   <section class="hero">
-    <div class="wrap hero-info">
-      <img class="brand-lockup" src="images/logo-santa-rita.png"
-           alt="Parcelas Santa Rita — Quinchamalí, Chillán, Ñuble, Chile"
-           width="720" height="686">
-      <div class="hero-status"><span class="dot"></span> Disponible — venta directa</div>
-      <h1>Parcelas de agrado en Quinchamalí, Ñuble</h1>
-      <p class="hero-sub">Terrenos desde 5.000 m² con acceso a camino público, agua de pozo y vista a la cordillera. A 20 min de Chillán.</p>
-
-      <div class="stat-bar">
-        <div><span class="stat-label">Desde</span><span class="stat-value">UF 950</span></div>
-        <div><span class="stat-label">Superficie</span><span class="stat-value">5.000 – 20.000 m²</span></div>
-        <div><span class="stat-label">Ubicación</span><span class="stat-value">Quinchamalí, Ñuble</span></div>
-        <div><span class="stat-label">Título</span><span class="stat-value">Saneado</span></div>
-      </div>
+    <div class="hero-fondo" aria-hidden="true">
+      <img class="hero-fondo-foto" src="images/hero-dron.jpg" alt=""
+           width="1920" height="1080" decoding="async">
+      <video class="hero-fondo-video" autoplay muted loop playsinline preload="auto"
+             poster="images/hero-dron.jpg">
+        <source src="video/terreno-dron.mp4" type="video/mp4">
+      </video>
     </div>
-  </section>
-
-  <!-- HIGHLIGHTS + DESCRIPTION -->
-  <section class="wrap intro-block">
-    <div class="highlights">
-      <div class="highlight-card">
-        <span class="hl-icon">⛰️</span>
-        <p>Vista despejada a la cordillera de los Andes desde casi todos los lotes altos</p>
-      </div>
-      <div class="highlight-card">
-        <span class="hl-icon">💧</span>
-        <p>Derechos de agua de pozo profundo certificados, con estudio de napa incluido</p>
-      </div>
-      <div class="highlight-card">
-        <span class="hl-icon">🛣️</span>
-        <p>Acceso directo por camino público, sin servidumbre de paso de terceros</p>
-      </div>
-      <div class="highlight-card">
-        <span class="hl-icon">📄</span>
-        <p>Título de dominio saneado e inscrito, deslindes topografiados y amojonados</p>
-      </div>
-    </div>
-
-    <div class="description">
-      <h2>Sobre el loteo</h2>
-      <p>Quinchamalí, en la Región de Ñuble, ha sido durante generaciones tierra de trigo, viñas y greda — hoy también un lugar donde familias de Chillán y Concepción compran su primer terreno de descanso. El loteo se ubica a 20 minutos de Chillán y 12 minutos de la Ruta 5, con vista abierta al valle y la cordillera.</p>
-      <p>Los <span data-count="disponibles-texto">12</span> lotes disponibles van desde 5.000 m² hasta 20.000 m², todos con acceso directo por camino público, factibilidad de agua de pozo verificada y título de dominio saneado — sin comunidades ni copropiedad. Ideal para segunda vivienda, proyecto agrícola a pequeña escala o inversión de largo plazo.</p>
-    </div>
-  </section>
-
-  <!-- PARCEL GRID -->
-  <section class="wrap parcels-block" id="parcelas">
-    <div class="section-head">
-      <h2>Lotes disponibles</h2>
-      <p>Precios en UF, actualizados al 17 de agosto de 2026. Financiamiento directo hasta 24 meses.</p>
-    </div>
-
-    <div class="parcel-grid" data-parcel-grid>
-      <article class="parcel-card">
-        <div class="parcel-status status-available">Disponible</div>
-        <h3>Lote 3</h3>
-        <dl>
-          <div><dt>Superficie</dt><dd>5.200 m²</dd></div>
-          <div><dt>Precio</dt><dd>UF 950</dd></div>
-          <div><dt>Frente</dt><dd>Camino público</dd></div>
-        </dl>
-        <a href="#contacto" class="btn btn-outline" data-lote="3">Consultar este lote</a>
-      </article>
-
-      <article class="parcel-card">
-        <div class="parcel-status status-available">Disponible</div>
-        <h3>Lote 7</h3>
-        <dl>
-          <div><dt>Superficie</dt><dd>8.400 m²</dd></div>
-          <div><dt>Precio</dt><dd>UF 1.480</dd></div>
-          <div><dt>Frente</dt><dd>Camino público + vista cordillera</dd></div>
-        </dl>
-        <a href="#contacto" class="btn btn-outline" data-lote="7">Consultar este lote</a>
-      </article>
-
-      <article class="parcel-card">
-        <div class="parcel-status status-reserved">Reservado</div>
-        <h3>Lote 9</h3>
-        <dl>
-          <div><dt>Superficie</dt><dd>12.000 m²</dd></div>
-          <div><dt>Precio</dt><dd>UF 2.100</dd></div>
-          <div><dt>Frente</dt><dd>Esquina, dos accesos</dd></div>
-        </dl>
-        <a href="#contacto" class="btn btn-outline" data-lote="9">Lista de espera</a>
-      </article>
-
-      <article class="parcel-card">
-        <div class="parcel-status status-available">Disponible</div>
-        <h3>Lote 12</h3>
-        <dl>
-          <div><dt>Superficie</dt><dd>20.000 m²</dd></div>
-          <div><dt>Precio</dt><dd>UF 3.400</dd></div>
-          <div><dt>Frente</dt><dd>Camino público + orilla de estero</dd></div>
-        </dl>
-        <a href="#contacto" class="btn btn-outline" data-lote="12">Consultar este lote</a>
-      </article>
-    </div>
-    <p class="parcel-note"><span data-count="adicionales">8</span> lotes adicionales disponibles — foto satelital y deslindes exactos por WhatsApp.</p>
-  </section>
-
-
-  <!-- LOT AVAILABILITY -->
-  <section class="wrap availability-block" id="disponibilidad">
-    <div class="section-head">
-      <h2>Disponibilidad de lotes</h2>
-      <p>Hijuela Número Dos — <span data-count="total">17</span> lotes en total. Estado actualizado al <span data-actualizado>18 de agosto de 2026</span>.</p>
-    </div>
-
-    <div class="avail-top">
-      <div class="avail-counts">
-        <div class="avail-count"><strong data-count="disponibles">12</strong><span>Disponibles</span></div>
-        <div class="avail-count is-sold"><strong data-count="vendidos">5</strong><span>Vendidos</span></div>
-      </div>
-      <div class="avail-legend">
-        <span><i class="sw sw-disponible"></i>Disponible</span>
-        <span><i class="sw sw-vendido"></i>Vendido</span>
-      </div>
-    </div>
-
-    <div class="avail-layout">
-      <div class="avail-panel">
-        <h3 class="avail-h3">Plano esquemático</h3>
-        <div class="avail-columns">
-          <div class="avail-col avail-col-wide" data-col="izquierda">
-          <div class="lot-bar" data-estado="disponible" style="height:52px"><span class="lot-bar-n">Lote 2</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:64px"><span class="lot-bar-n">Lote 4</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="vendido" style="height:70px"><span class="lot-bar-n">Lote 6</span><span class="lot-bar-tag">Vendido</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:66px"><span class="lot-bar-n">Lote 8</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:76px"><span class="lot-bar-n">Lote 10</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:70px"><span class="lot-bar-n">Lote 12</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:74px"><span class="lot-bar-n">Lote 14</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:62px"><span class="lot-bar-n">Lote 16</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="vendido" style="height:56px"><span class="lot-bar-n">Lote 18</span><span class="lot-bar-tag">Vendido</span></div>
-          </div>
-          <div class="avail-col" data-col="derecha">
-          <div class="lot-bar" data-estado="disponible" style="height:64px"><span class="lot-bar-n">Lote 3</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:56px"><span class="lot-bar-n">Lote 5</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:58px"><span class="lot-bar-n">Lote 7</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:60px"><span class="lot-bar-n">Lote 9</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="disponible" style="height:62px"><span class="lot-bar-n">Lote 11</span><span class="lot-bar-tag">Disponible</span></div>
-          <div class="lot-bar" data-estado="vendido" style="height:64px"><span class="lot-bar-n">Lote 13</span><span class="lot-bar-tag">Vendido</span></div>
-          <div class="lot-bar" data-estado="vendido" style="height:66px"><span class="lot-bar-n">Lote 15</span><span class="lot-bar-tag">Vendido</span></div>
-          <div class="lot-bar" data-estado="vendido" style="height:60px"><span class="lot-bar-n">Lote 17</span><span class="lot-bar-tag">Vendido</span></div>
-          </div>
-          <div class="avail-road"><span>Camino público</span></div>
+    <div class="wrap hero-grid">
+      <div>
+        <img class="marca" src="images/logo-santa-rita.png"
+             alt="Parcelas Santa Rita — Quinchamalí, Chillán, Ñuble, Chile"
+             width="720" height="686">
+        <p class="estado-linea"><span class="punto"></span> Venta directa del propietario</p>
+        <h1>Parcelas de <em>agrado</em> en Quinchamalí</h1>
+        <p class="hero-sub">
+          Diecisiete lotes de aproximadamente 5.000 m² sobre la Hijuela Número Dos, con
+          acceso por camino público y título de dominio saneado. A 20 minutos de Chillán,
+          Región de Ñuble.
+        </p>
+        <div class="hero-acciones">
+          <a class="btn btn-greda" href="#parcelas">Ver lotes disponibles</a>
+          <a class="btn btn-linea" data-wa href="#contacto" target="_blank" rel="noopener">Consultar por WhatsApp</a>
         </div>
-        <p class="avail-disclaimer">Esquema referencial — las proporciones no representan superficies reales.</p>
+
+        <div class="cifras">
+          <div class="cifra">
+            <span class="rotulo">Disponibles</span>
+            <b class="num"><span data-cifra="disponibles">—</span></b>
+            <small>de <span data-cifra="total">17</span> lotes</small>
+          </div>
+          <div class="cifra">
+            <span class="rotulo">Precio por lote</span>
+            <b class="num" data-cifra="precio">—</b>
+            <small data-cifra="precio-clp">—</small>
+          </div>
+          <div class="cifra">
+            <span class="rotulo">Superficie</span>
+            <b class="num" data-cifra="superficie">—</b>
+            <small>cada parcela</small>
+          </div>
+          <div class="cifra">
+            <span class="rotulo">Título</span>
+            <b>Saneado</b>
+            <small>inscrito en el CBR</small>
+          </div>
+        </div>
       </div>
 
-      <figure class="avail-plano">
-        <img src="images/plano-loteo-quinchamali.jpg"
-             alt="Plano de loteo con la subdivisión de los lotes 2 al 18, el camino público y el croquis de ubicación respecto de Chillán"
-             width="750" height="982" loading="lazy">
-        <figcaption>Plano original de referencia — Hijuela Número Dos, croquis de ubicación</figcaption>
-      </figure>
+      <div class="hero-plano-col">
+        <div class="catastro">
+          <div class="catastro-cab">
+            <h2>Plano del loteo</h2>
+            <span class="rotulo">Toca un lote</span>
+          </div>
+          <svg id="plano-svg" viewBox="0 0 400 650" role="img"
+               aria-label="Esquema del loteo: dos filas de lotes numerados del 2 al 18 junto al camino público."></svg>
+          <div class="catastro-pie">
+            <div class="leyenda">
+              <span><i class="sw sw-disponible"></i>Disponible</span>
+              <span><i class="sw sw-vendido"></i>Vendido</span>
+            </div>
+          </div>
+          <p class="nota-fina">Esquema referencial. Las proporciones no representan superficies reales — el plano original está más abajo.</p>
+        </div>
+      </div>
     </div>
-
-    <h3 class="avail-h3 avail-h3-spaced">Estado por lote</h3>
-    <div class="avail-chips" data-chips>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">2</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">3</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">4</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">5</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="vendido"><span class="lot-chip-n">6</span><span class="lot-chip-tag">Vendido</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">7</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">8</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">9</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">10</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">11</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">12</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="vendido"><span class="lot-chip-n">13</span><span class="lot-chip-tag">Vendido</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">14</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="vendido"><span class="lot-chip-n">15</span><span class="lot-chip-tag">Vendido</span></div>
-        <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">16</span><span class="lot-chip-tag">Disponible</span></div>
-        <div class="lot-chip" data-estado="vendido"><span class="lot-chip-n">17</span><span class="lot-chip-tag">Vendido</span></div>
-        <div class="lot-chip" data-estado="vendido"><span class="lot-chip-n">18</span><span class="lot-chip-tag">Vendido</span></div>
-    </div>
-
-    <p class="avail-note" data-nota-vendidos>Lotes 6, 13, 15, 17 y 18 ya se encuentran vendidos. El resto continúa disponible para reserva.</p>
   </section>
 
-  <!-- TRUST -->
-  <section class="trust-band" id="confianza">
-    <div class="wrap">
-      <div class="section-head light">
-        <h2>Por qué comprar con nosotros</h2>
-        <p>13 años vendiendo parcelas en Ñuble. Sin intermediarios, sin sorpresas en el CBR.</p>
-      </div>
-
-      <div class="trust-grid">
-        <div class="trust-card">
-          <span class="hl-icon">📜</span>
-          <h3>Título 100% saneado</h3>
-          <p>Dominio vigente, sin embargos ni prohibiciones. Certificado de hipotecas y gravámenes disponible antes de firmar.</p>
+  <!-- ══ INTRO ══════════════════════════════════════════ -->
+  <section class="seccion">
+    <div class="wrap intro">
+      <div class="atributos">
+        <div class="atributo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18l6-8 4 5 3-4 7 7z"/><circle cx="17" cy="6" r="2.5"/></svg>
+          <h3>Vista al valle y la cordillera</h3>
+          <p>Terreno de lomaje suave sobre el valle del Itata, con vista despejada a la cordillera desde los lotes altos.</p>
         </div>
-        <div class="trust-card">
-          <span class="hl-icon">📐</span>
+        <div class="atributo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 10.5A6 6 0 0 1 6 13.5C6 9.5 12 3 12 3z"/></svg>
+          <h3>Factibilidad de agua potable</h3>
+          <p>Cada parcela tiene factibilidad para implementar un sistema de agua potable mediante
+             pozo propio —profundo o puntera—, según la napa del terreno. Las parcelas se venden
+             sin perforación previa; su habilitación corresponde al comprador.</p>
+        </div>
+        <div class="atributo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20L9 4l6 16"/><path d="M20 4v16"/></svg>
+          <h3>Acceso por camino público</h3>
+          <p>Cada lote enfrenta camino público o de acceso interior. Sin servidumbre de paso de terceros.</p>
+        </div>
+        <div class="atributo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 13h7M9 17h5"/></svg>
           <h3>Deslindes topografiados</h3>
-          <p>Cada lote viene con plano topográfico inscrito en el Conservador de Bienes Raíces de Chillán.</p>
-        </div>
-        <div class="trust-card">
-          <span class="hl-icon">🤝</span>
-          <h3>Venta directa, sin comisión</h3>
-          <p>Tratas directo con la familia propietaria del loteo — no hay corredor intermedio ni comisión oculta en el precio.</p>
-        </div>
-        <div class="trust-card">
-          <span class="hl-icon">⚖️</span>
-          <h3>Escritura ante notario</h3>
-          <p>Firma en Notaría de Chillán, con abogado de tu confianza si lo prefieres. Escritura lista en 30 días.</p>
+          <p>Subdivisión inscrita y aprobada por el SAG, deslindes medidos en terreno, plano en el Conservador de Chillán.</p>
         </div>
       </div>
 
-      <div class="broker-row">
-        <div class="broker-card">
-          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=200&q=70" alt="Retrato de Horacio Puentes" class="broker-photo">
-          <div>
-            <div class="broker-name">Horacio Puentes</div>
-            <div class="broker-role">Propietario — Loteo Santa Rita</div>
-            <a href="tel:+19084008492" class="broker-phone">+1 908 400 8492</a>
+      <div class="texto">
+        <span class="rotulo">El loteo</span>
+        <h2 style="font-size:1.5rem;font-weight:600;margin:9px 0 14px">Tierra de trigo, viñas y greda</h2>
+        <p>
+          Quinchamalí es conocido en todo Chile por su alfarería negra, oficio reconocido por la
+          UNESCO y sostenido por generaciones de loceras del sector. Alrededor del pueblo, el
+          valle sigue siendo lo que siempre fue: trigo, viñas viejas y potreros abiertos hacia
+          el Itata.
+        </p>
+        <p>
+          La Hijuela Número Dos se subdividió en diecisiete lotes de aproximadamente 5.000 m²
+          cada uno, dispuestos en dos filas a lo largo del camino. Todos con la misma superficie
+          y el mismo precio — sin lotes premium ni castigados, sin comunidad ni copropiedad:
+          cada parcela se escritura de forma independiente a nombre del comprador.
+        </p>
+        <p>
+          La venta es directa con la familia propietaria. No hay corredor de por medio ni
+          comisión escondida en el precio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CATÁLOGO ═══════════════════════════════════════ -->
+  <section class="seccion" id="parcelas" style="padding-top:0">
+    <div class="wrap">
+      <div class="seccion-cab">
+        <span class="rotulo">Catálogo</span>
+        <h2>Estado de los diecisiete lotes</h2>
+        <p>Todas las parcelas comparten superficie y precio. Lo único que cambia entre una y otra es su posición en el loteo.</p>
+      </div>
+
+      <div class="catalogo-barra">
+        <div class="filtros" role="group" aria-label="Filtrar por estado">
+          <button class="filtro" type="button" data-filtro="disponible" aria-pressed="true">Disponibles <span class="cuenta num"></span></button>
+          <button class="filtro" type="button" data-filtro="vendido" aria-pressed="false">Vendidos <span class="cuenta num"></span></button>
+          <button class="filtro" type="button" data-filtro="todos" aria-pressed="false">Todos <span class="cuenta num"></span></button>
+        </div>
+        <div class="moneda">
+          <span class="rotulo">Mostrar precio en</span>
+          <div class="conmutador" role="group" aria-label="Moneda">
+            <button type="button" data-moneda="UF" aria-pressed="true">UF</button>
+            <button type="button" data-moneda="CLP" aria-pressed="false">Pesos</button>
           </div>
         </div>
+      </div>
 
-        <blockquote class="testimonial">
-          <p>"Compramos el Lote 5 hace dos años. Todo el trámite fue directo con Horacio, sin vueltas — la escritura estuvo lista en tres semanas."</p>
-          <cite>— Familia Vergara, Chillán</cite>
-        </blockquote>
+      <div class="rejilla" id="rejilla"></div>
+      <p class="vacio" id="vacio" hidden>No hay lotes en esta categoría.</p>
+
+      <p class="catalogo-nota">
+        <strong>Sobre los precios.</strong> Cada parcela vale <strong>UF 620</strong>, equivalente a
+        <strong>≈ $<span data-cifra="precio-clp-plano">25.335.203</span></strong> con la UF de hoy
+        (<span data-uf-valor>—</span>, al <span data-uf-fecha>—</span>). Como la UF se reajusta a diario,
+        el valor en pesos varía; la operación se pacta siempre en UF.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ PLANO ORIGINAL ═════════════════════════════════ -->
+  <section class="seccion" id="plano" style="padding-top:0">
+    <div class="wrap">
+      <div class="seccion-cab">
+        <span class="rotulo">Documentos</span>
+        <h2>Plano de subdivisión</h2>
+        <p>El plano original de la Hijuela Número Dos, con la numeración de lotes, los deslindes medidos y el croquis de ubicación respecto de Chillán.</p>
+      </div>
+
+      <div class="plano-fila">
+        <figure class="plano-marco">
+          <img id="plano-original" src="images/plano-loteo-quinchamali.jpg" tabindex="0"
+               alt="Plano de subdivisión sobre imagen satelital: lotes 2 al 18 en dos filas, camino público, cuadro de superficies y croquis de ubicación respecto de Chillán."
+               width="750" height="982" loading="lazy">
+          <figcaption>Plano de subdivisión — Hijuela Número Dos. Toca para ampliar.</figcaption>
+        </figure>
+
+        <div>
+          <dl class="datos-legales">
+            <div class="dato-legal"><dt>Predio</dt><dd>Hijuela Número Dos del mismo lote, Sucesión Rolando Zúñiga Vera.</dd></div>
+            <div class="dato-legal"><dt>Lotes</dt><dd><span data-cifra="total">17</span> parcelas numeradas del 2 al 18, en dos filas.</dd></div>
+            <div class="dato-legal"><dt>Superficie</dt><dd><span data-cifra="superficie">—</span> por lote, según cuadro de superficies del plano.</dd></div>
+            <div class="dato-legal"><dt>Acceso</dt><dd>Camino público por el costado oriente del loteo, más camino de acceso interior.</dd></div>
+            <div class="dato-legal"><dt>Título</dt><dd>Dominio vigente y saneado, sin hipotecas ni prohibiciones. Certificado disponible antes de firmar.</dd></div>
+            <div class="dato-legal"><dt>Escritura</dt><dd>En notaría de Chillán, con abogado del comprador si lo prefiere. Plazo estimado: 30 días.</dd></div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- MAP -->
-  <section class="wrap map-block">
-    <div class="section-head">
-      <h2>Ubicación</h2>
-      <p>Quinchamalí, Comuna de Chillán, Región de Ñuble — 20 min del centro de Chillán, 12 min de la Ruta 5.</p>
+  <!-- ══ CONFIANZA ══════════════════════════════════════ -->
+  <section class="confianza" id="confianza">
+    <div class="wrap">
+      <div class="seccion-cab">
+        <span class="rotulo">Garantías</span>
+        <h2>Lo que revisas antes de firmar</h2>
+        <p>Comprar tierra en Chile se cae por los papeles, no por el paisaje. Estos son los documentos que entregamos apenas los pidas.</p>
+      </div>
+
+      <div class="garantias">
+        <div class="garantia">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="m9 14 2 2 4-4"/></svg>
+          <h3>Título saneado</h3>
+          <p>Dominio vigente sin embargos ni prohibiciones. Certificado de hipotecas y gravámenes del Conservador de Bienes Raíces de Chillán.</p>
+        </div>
+        <div class="garantia">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M5 20V9l7-5 7 5v11"/><path d="M10 20v-6h4v6"/></svg>
+          <h3>Rol propio en el SII</h3>
+          <p>Cada parcela tiene rol de avalúo independiente autorizado por el Servicio de Impuestos
+             Internos. Subdivisión inscrita y aprobada por el SAG, con deslindes topografiados en terreno.</p>
+        </div>
+        <div class="garantia">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8h14"/><path d="M7 8 4 15h6zM17 8l-3 7h6z"/></svg>
+          <h3>Sin comisión</h3>
+          <p>Tratas directo con la familia propietaria. El precio que ves es el precio que se escritura.</p>
+        </div>
+        <div class="garantia">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <h3>Plazos claros</h3>
+          <p>Reserva, promesa y escritura con fechas definidas por escrito. Escritura lista en unos 30 días.</p>
+        </div>
+      </div>
+
+      <div class="vendedor-fila">
+        <div class="vendedor">
+          <div class="inicial" aria-hidden="true">HP</div>
+          <div>
+            <div class="vendedor-nombre">Horacio Puentes</div>
+            <div class="vendedor-rol">Propietario — Loteo Santa Rita</div>
+            <a data-tel href="#"></a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="map-frame">
-      <iframe title="Mapa de Parcelas Santa Rita, Quinchamalí, Ñuble" src="https://www.openstreetmap.org/export/embed.html?bbox=-72.4128%2C-36.6537%2C-72.3888%2C-36.6377&amp;layer=mapnik&amp;marker=-36.6457%2C-72.4008" loading="lazy"></iframe>
-    </div>
-    <p class="map-link"><a href="https://maps.app.goo.gl/z5vMNq7yuHu4amJP6" target="_blank" rel="noopener">Ver la ubicación en Google Maps →</a></p>
   </section>
 
-  <!-- LEAD FORM -->
-  <section class="lead-band" id="contacto">
-    <div class="wrap lead-grid">
-      <div class="lead-copy">
-        <div class="hero-status"><span class="dot"></span> Respuesta el mismo día</div>
+  <!-- ══ UBICACIÓN ══════════════════════════════════════ -->
+  <section class="seccion" id="ubicacion">
+    <div class="wrap">
+      <div class="seccion-cab">
+        <span class="rotulo">Ubicación</span>
+        <h2>Quinchamalí, comuna de Chillán</h2>
+        <p>En el valle del Itata, al poniente de Chillán, con salida rápida a la Ruta 5 Sur.</p>
+      </div>
+
+      <div class="ubicacion-fila">
+        <div class="mapa-marco">
+          <svg viewBox="0 0 420 250" role="img" aria-label="Esquema de ubicación: el loteo en Quinchamalí, al poniente de Chillán, con acceso a la Ruta 5 Sur.">
+            <path class="rio" d="M0 46 C70 30 120 62 180 48 C240 34 280 58 420 40"/>
+            <text class="etq" x="8" y="40">Río Itata</text>
+
+            <path class="ruta-5" d="M352 4 C346 70 350 130 338 246"/>
+            <text class="etq" x="360" y="150" transform="rotate(-84 360 150)">Ruta 5 Sur</text>
+
+            <path class="ruta" d="M318 108 C260 122 210 140 150 156"/>
+            <text class="etq" x="205" y="145" transform="rotate(-9 205 145)">Camino a Quinchamalí</text>
+
+            <path class="ruta" d="M150 156 C142 174 138 186 134 196"/>
+
+            <circle class="ciudad" cx="318" cy="108" r="6"/>
+            <text class="etq-fuerte" x="330" y="105">Chillán</text>
+            <text class="etq" x="330" y="119">Centro y servicios</text>
+
+            <circle class="ciudad" cx="150" cy="156" r="4.5"/>
+            <text class="etq-fuerte" x="112" y="146">Quinchamalí</text>
+
+            <g transform="translate(134 196)">
+              <path class="hito" d="M0 0 C-11 -13 -14 -18 -14 -24 A14 14 0 0 1 14 -24 C14 -18 11 -13 0 0Z"/>
+              <circle cx="0" cy="-24" r="5" fill="var(--superficie)"/>
+              <text class="etq-fuerte" x="12" y="-4">Parcelas Santa Rita</text>
+            </g>
+
+            <text class="etq" x="8" y="238">Esquema referencial — no está a escala</text>
+          </svg>
+        </div>
+
+        <div>
+          <dl class="trayectos">
+            <div class="trayecto"><dt>Centro de Chillán</dt><dd class="num">20 min</dd></div>
+            <div class="trayecto"><dt>Acceso a la Ruta 5 Sur</dt><dd class="num">12 min</dd></div>
+            <div class="trayecto"><dt>Santiago por Ruta 5</dt><dd class="num">≈ 400 km</dd></div>
+          </dl>
+          <p style="font-size:.92rem;color:var(--tinta-suave);margin:0 0 20px">
+            Coordinamos visitas al terreno de lunes a sábado. Si vienes de fuera de Ñuble,
+            avísanos con un día de anticipación y te esperamos en Chillán.
+          </p>
+          <a class="enlace-mapa" data-maps href="#" target="_blank" rel="noopener">Abrir la ubicación en Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACTO ═══════════════════════════════════════ -->
+  <section class="contacto" id="contacto">
+    <div class="wrap contacto-grid">
+      <div class="contacto-copia">
+        <p class="estado-linea"><span class="punto"></span> Respuesta el mismo día</p>
         <h2>Pide la ficha completa del loteo</h2>
-        <p>Te enviamos ubicación exacta, planos de cada lote, precios actualizados y disponibilidad — por correo o WhatsApp, como prefieras.</p>
-        <ul class="lead-points">
+        <p>Te enviamos el plano de subdivisión, la ubicación exacta, el certificado de dominio y la disponibilidad al día — por WhatsApp o correo, como prefieras.</p>
+        <ul class="puntos">
           <li>Sin compromiso ni presión de compra</li>
           <li>Fotos satelitales y video del terreno</li>
-          <li>Respuesta directa de Horacio, no de un call center</li>
+          <li>Respuesta directa del propietario, no de un call center</li>
+          <li>Coordinamos la visita cuando quieras ir a verlo</li>
         </ul>
-        <a href="https://wa.me/19084008492" class="btn btn-whatsapp lead-wa" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.08c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
-          O escríbenos directo por WhatsApp
-        </a>
+        <p style="font-size:.92rem;color:var(--tinta-suave);margin:0">
+          O escríbenos directo: <a data-tel href="#" style="font-weight:700;color:var(--olivo-medio)"></a>
+        </p>
       </div>
 
-      <form class="lead-form" id="lead-form" novalidate>
-        <div class="field">
-          <label for="f-name">Nombre completo</label>
-          <input type="text" id="f-name" name="name" placeholder="Tu nombre" required autocomplete="name">
-          <span class="field-error">Ingresa tu nombre.</span>
+      <form class="formulario" id="form-contacto" novalidate>
+        <div class="campo">
+          <label for="f-nombre">Nombre completo</label>
+          <input type="text" id="f-nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required>
+          <span class="campo-error">Ingresa tu nombre.</span>
         </div>
-        <div class="field">
+        <div class="campo">
           <label for="f-email">Correo electrónico</label>
-          <input type="email" id="f-email" name="email" placeholder="tucorreo@ejemplo.com" required autocomplete="email">
-          <span class="field-error">Ingresa un correo válido.</span>
+          <input type="email" id="f-email" name="email" placeholder="tucorreo@ejemplo.cl" autocomplete="email" required>
+          <span class="campo-error">Ingresa un correo válido.</span>
         </div>
-        <div class="field">
-          <label for="f-phone">Teléfono</label>
-          <input type="tel" id="f-phone" name="phone" placeholder="+56 9 1234 5678" required autocomplete="tel">
-          <span class="field-error">Ingresa tu teléfono.</span>
+        <div class="campo">
+          <label for="f-telefono">Teléfono</label>
+          <input type="tel" id="f-telefono" name="telefono" placeholder="+56 9 1234 5678" autocomplete="tel" required>
+          <span class="campo-error">Ingresa un teléfono de al menos 8 dígitos.</span>
+        </div>
+        <div class="campo">
+          <label for="f-lote">Lote de interés</label>
+          <select id="f-lote" name="lote">
+            <option value="">Todavía no lo decido</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="f-mensaje">Mensaje <span style="text-transform:none;letter-spacing:0;font-weight:500">(opcional)</span></label>
+          <textarea id="f-mensaje" name="mensaje" rows="3" placeholder="¿Cuándo podrían mostrarme el terreno?"></textarea>
         </div>
 
-        <fieldset class="field field-toggle">
-          <legend>¿Te contactamos por WhatsApp?</legend>
-          <div class="toggle-group" role="radiogroup" aria-label="¿Te contactamos por WhatsApp?">
-            <input type="radio" id="wa-yes" name="whatsapp" value="si" checked>
-            <label for="wa-yes">Sí</label>
-            <input type="radio" id="wa-no" name="whatsapp" value="no">
-            <label for="wa-no">No</label>
-          </div>
-        </fieldset>
+        <button type="submit" class="btn btn-greda">Enviar consulta por WhatsApp</button>
+        <p class="letra-chica">Tus datos se usan solo para responderte sobre este loteo. No enviamos publicidad ni los compartimos con terceros.</p>
 
-        <!-- Honeypot antispam: invisible para personas, irresistible para bots. -->
-        <div class="hp" aria-hidden="true">
-          <label for="f-website">No completar este campo</label>
-          <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
-        </div>
-        <input type="hidden" name="lote_interes" value="">
-        <p class="lead-asunto" data-lote-asunto hidden></p>
-
-        <button type="submit" class="btn btn-submit">Quiero la ficha del loteo</button>
-        <p class="lead-fineprint">Tus datos se usan solo para contactarte sobre este loteo. No hacemos spam ni los compartimos con terceros.</p>
-        <p class="lead-success" id="lead-success" role="status" hidden>¡Listo! Te escribimos hoy mismo con toda la información.</p>
-        <p class="lead-error" id="lead-error" role="alert" hidden></p>
+        <p class="exito" id="form-exito" hidden>
+          Listo — abrimos WhatsApp con tu consulta escrita. Si no se abrió solo, usa este botón:
+          <a class="btn btn-wa" id="exito-wa" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a>
+          <a class="btn btn-linea" id="exito-mail" href="#">Enviarlo por correo</a>
+        </p>
       </form>
     </div>
   </section>
 </main>
 
-<script src="js/config.js"></script>
-<script src="js/supabase.js"></script>
-<script src="js/lotes.js" defer></script>
+<footer class="pie">
+  <div class="wrap pie-inner">
+    <span class="pie-marca">Parcelas Santa Rita</span>
+    <span>Quinchamalí, Comuna de Chillán, Región de Ñuble, Chile</span>
+    <span>Venta directa · <a data-tel href="#"></a></span>
+  </div>
+</footer>
+
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Plano de subdivisión ampliado">
+  <button class="lupa-cerrar" id="lupa-cerrar" type="button" aria-label="Cerrar">×</button>
+  <img id="lupa-img" src="" alt="Plano de subdivisión de la Hijuela Número Dos, ampliado">
+</div>
+
+<script src="js/datos.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
