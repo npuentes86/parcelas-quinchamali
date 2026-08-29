@@ -88,7 +88,16 @@ Cloudflare (gratis) y administrar ahí los registros:
 1. Repo → **Settings → Pages**.
 2. *Source*: **Deploy from a branch** → `main` / `(root)`.
 3. *Custom domain*: `parcelasquinchamali.cl` → **Save**.
-   (El archivo `CNAME` del repo ya lo declara.)
+
+   > ⚠️ **El archivo `CNAME` está removido a propósito.** Mientras exista,
+   > GitHub Pages redirige `npuentes86.github.io/parcelas-quinchamali` al
+   > dominio propio — y si el dominio todavía no resuelve, el sitio queda
+   > inalcanzable. Restaurarlo **solo cuando el DNS ya esté apuntando**:
+   >
+   > ```sh
+   > echo 'parcelasquinchamali.cl' > CNAME
+   > git add CNAME && git commit -m 'Restore CNAME: DNS ya apunta' && git push
+   > ```
 4. Esperar a que verifique el DNS y marcar **Enforce HTTPS**.
    El certificado tarda entre 15 minutos y ~1 hora desde que el DNS resuelve.
 
