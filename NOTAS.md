@@ -111,10 +111,16 @@ actualiza sola cuando cambia el estado de uno. El color solo separa pares (verde
 de impares (naranjo, hacia el camino), y la página remite al catálogo para la disponibilidad.
 Cambiar los polígonos exige re-renderizar en la máquina "Escritorio".
 
-**Y una salvedad de fondo.** `equal_area_lots` dibuja las 17 parcelas idénticas, pero en el
-plano inscrito no todas tienen la misma forma: el loteo se angosta hacia el sur y el frente sobre
-el camino crece donde el fondo se acorta. Los deslindes del video son una aproximación. Está
-dicho en el texto de la sección y en el banner del propio video.
+**Qué hace y qué no hace `equal_area_lots`.** Reparte por área acumulada con cortes
+perpendiculares al eje, y eso mantiene la superficie constante **variando la forma**: corrido
+sobre la geometría real da 5.000 m² en los 17 lotes con lados de 51,3 a 121,6 m. O sea reproduce
+lo que describe el plano —el loteo se angosta hacia el sur y el frente crece donde el fondo se
+acorta— y con el mínimo legal de 5.000 m² es además el único comportamiento posible.
+
+Lo que sí es un límite real: `solve_offset()` fijó los deslindes deslizándolos hasta cuadrar la
+superficie supuesta, no restituyendo las cotas. Las formas son plausibles pero no son los
+cuadriláteros inscritos. Para cualquier cosa que dependa de la forma exacta de un lote, hay que
+ir al plano.
 
 **Superficie: todas ≈ 5.000 m².** Es el mínimo legal de este tipo de subdivisión, así que ninguna
 parcela puede ser menor — dato del propietario, 29-08-2026. En algún momento estimé superficies
