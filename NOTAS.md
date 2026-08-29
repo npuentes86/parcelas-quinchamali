@@ -13,10 +13,12 @@ js/main.js          plano interactivo, filtros, conmutador UF/pesos, formulario
 images/             logo, plano de subdivisión, og-image, fotograma del dron
 video/              terreno-dron.mp4 — toma aérea de fondo del hero
 build.py            empaqueta todo en dist/sitio.html (autocontenido, para el Artifact)
-galeria/            galería aérea, se publica como Artifact aparte
-  preparar.sh       comprime las tomas del dron y saca los fotogramas (aplica el grade)
-  vuelo.tpl.html    plantilla: visor con el plano superpuesto, tomas y hoja de contacto
-  armar.py          incrusta el material y arma galeria/vuelo-santa-rita.html
+desde-el-aire.html  galería aérea (página del sitio, no Artifact)
+css/galeria.css     estilos propios de esa página
+js/galeria.js       superposición del plano sobre el video + lupa
+video/aereo-*.mp4   las dos tomas comprimidas, con el color corregido
+images/aereas/      los fotogramas de la hoja de contacto
+preparar-aereas.sh  regenera ese material desde las tomas originales del dron
 dist/sitio.html     archivo publicado
 _original/          el zip que trajiste, sin tocar
 ```
@@ -67,24 +69,33 @@ Cerrados sin acción, por decisión tuya del 23-08-2026:
 
 ## Galería aérea
 
-Vive en `galeria/` y se publica como un **Artifact aparte** del sitio:
-https://claude.ai/code/artifact/52f6c109-118d-445a-97a5-5b34e4bfbd31
+`desde-el-aire.html` — **una página del sitio**, servida por GitHub Pages en
+https://parcelasquinchamali.cl/desde-el-aire.html
 
-El sitio la enlaza desde la navegación y desde la sección del plano. La URL está en
-`js/datos.js` como `galeriaUrl` y se inyecta con `[data-galeria]`, igual que `mapsUrl`.
+No es un Artifact. Se probó como Artifact primero y se descartó: los Artifacts son privados
+salvo que se compartan a mano, así que un enlace desde el sitio público llevaba a un muro de
+acceso. Como página del repo no depende de nadie, el navegador cachea el video en vez de
+tragarse 10 MB de base64, y queda indexable.
 
-**Para regenerarla:**
+El sitio la enlaza desde la navegación y desde la sección del plano, con enlaces relativos
+normales — sin pasar por `datos.js`, para que funcionen aunque el JS falle. `build.py` los
+reescribe a la URL absoluta al empaquetar `dist/sitio.html`, porque dentro del Artifact del
+sitio un enlace relativo no resuelve.
+
+Los lotes salen de `js/datos.js`, igual que en el resto del sitio: `galeria.js` lee
+`window.LOTEO` y de ahí saca cuáles están vendidos y los contadores.
+
+**Para regenerar el material** (no está en el repo el original de 4K):
 
 ```
-./galeria/preparar.sh ~/Downloads/DJI_0311_00000325.mp4 ~/Downloads/DJI_0320_00000420.mp4
-python3 galeria/armar.py
+./preparar-aereas.sh ~/Downloads/DJI_0311_00000325.mp4 ~/Downloads/DJI_0320_00000420.mp4
 ```
 
-Y republicar `galeria/vuelo-santa-rita.html` sobre la MISMA URL. `galeria/gal/` y el HTML
-armado no se versionan: se regeneran de las tomas originales, que no están en el repo.
+Escribe `video/aereo-*.mp4` e `images/aereas/*.jpg`, que **sí** se versionan porque Pages los
+sirve tal cual. Son ~7,6 MB en total.
 
-**El plano sobre el video.** No es un video con los lotes quemados: es un SVG proyectado en
-el navegador contra el tiempo del video, con una cámara estenopeica sobre el plano de suelo
+**El plano sobre el video.** No es un video con los lotes quemados: es un SVG proyectado en el
+navegador contra el tiempo del video, con una cámara estenopeica sobre el plano de suelo
 (`x = VPx + S·X/z`, `y = VPy + K/z`). Los parámetros se ajustaron contra fotogramas reales —
 el eje calza con el camino interior y a los 31 s el Lote 2 cae sobre el deslinde norte.
 
@@ -92,15 +103,18 @@ Los lotes se reparten **por área acumulada con cortes perpendiculares al eje**,
 de la franja tomado de las cotas del plano inscrito: el fondo baja de ~94 m en el norte a
 ~55 m junto al camino público y los frentes crecen de 58,87 a 91,02 compensando.
 
-**Ojo con la superficie.** Existe una versión previa (`loteo_v3`) hecha en otra máquina cuya
-escala px→m² sale de *suponer* que los 17 lotes suman 85.000 m², y que después desliza los
-deslindes hasta que la cuenta cuadre. Esa derivación es circular. Pero las cotas del plano lo
-respaldan por su cuenta: frente × fondo lote a lote da entre 4.900 y 5.500 m², y ~85.000 m²
-en total. La cifra es buena; el camino del v3 para llegar a ella, no.
+**Ojo con la superficie.** Existe una versión previa (`loteo_v3`, hecha en la máquina
+"Escritorio") cuya escala px→m² sale de *suponer* que los 17 lotes suman 85.000 m², y que
+después desliza los deslindes hasta que la cuenta cuadre. Esa derivación es circular. Pero las
+cotas del plano lo respaldan por su cuenta: frente × fondo lote a lote da entre 4.900 y
+5.500 m², y ~85.000 m² en total. La cifra es buena; el camino del v3 para llegar a ella, no.
 
 **Corrección de color.** Las tomas llevan el grade del set, definido en la máquina
 "Escritorio": `eq → selectivecolor → curves`, en ese orden, sin LUT (hornearla a Hald CLUT
-falla por espacio de color: la cadena trabaja en YUV). Está literal en `preparar.sh`.
+falla por espacio de color: la cadena trabaja en YUV). Está literal en `preparar-aereas.sh`.
+
+**Pendiente:** falta `drone10` (37,6 s de la misma zona, en `Escritorio`), que hay que copiar
+a mano — no hay ruta de red entre las máquinas.
 
 ## Decisiones de esta versión
 

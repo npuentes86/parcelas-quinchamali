@@ -48,6 +48,11 @@ def main() -> int:
                 html = html.replace(ref, '"' + data_uri(vid) + '"')
                 print(f"  incrustado {vid.name} ({vid.stat().st_size // 1024} KB)")
 
+    # 1c. El Artifact no puede seguir un enlace relativo a otra página del
+    #     sitio: ahí la galería tiene que apuntar al hosting real.
+    html = html.replace('"desde-el-aire.html"',
+                        '"https://parcelasquinchamali.cl/desde-el-aire.html"')
+
     # 2. CSS y JS → en línea
     html = html.replace(
         '<link rel="stylesheet" href="css/style.css">', f"<style>\n{css}\n</style>"

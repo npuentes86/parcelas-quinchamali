@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vuelo sobre Santa Rita — Parcelas Santa Rita, Quinchamalí</title>
+<meta name="description" content="Tomas aéreas del loteo Santa Rita en Quinchamalí, con el plano de las diecisiete parcelas calzado sobre el vuelo.">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Vuelo sobre Santa Rita">
+<meta property="og:description" content="Las tomas aéreas del loteo, con el plano de las diecisiete parcelas calzado sobre el vuelo.">
+<meta property="og:image" content="https://parcelasquinchamali.cl/images/aereas/largo-16.jpg">
+<meta property="og:url" content="https://parcelasquinchamali.cl/desde-el-aire.html">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Karla:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/galeria.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">Parcelas <b>Santa Rita</b></a>
+    <nav class="main-nav" aria-label="Principal">
+      <a href="index.html#parcelas">Parcelas</a>
+      <a href="index.html#plano">Plano</a>
+      <a href="index.html#ubicacion">Ubicación</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-wa header-cta" data-wa href="index.html#contacto" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 0 0 4.62 1.15h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.08c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<main class="wrap galeria">
+
+  <header class="gal-cab">
+    <p class="rotulo">Parcelas Santa Rita · Quinchamalí, Ñuble</p>
+    <h1>Vuelo sobre Santa Rita</h1>
+    <p class="gal-bajada">Las tomas aéreas del loteo, y el plano de las diecisiete parcelas
+      calzado sobre el vuelo para ver dónde cae cada lote en el terreno real.</p>
+
+    <div class="gal-datos">
+      <div class="gal-dato"><b><span data-cifra="total">17</span></b><small>parcelas de <span data-cifra="superficie">≈ 5.000 m²</span></small></div>
+      <div class="gal-dato"><b>2</b><small>tomas de dron</small></div>
+      <div class="gal-dato"><b>39<span class="u">s</span></b><small>de vuelo en total</small></div>
+      <div class="gal-dato"><b>4K<span class="u">60</span></b><small>original, 3840×2160</small></div>
+    </div>
+  </header>
+
+  <section class="gal-seccion">
+    <div class="gal-encabeza">
+      <h2>El plano sobre el vuelo</h2>
+      <span class="rotulo">Toma larga · 35 s</span>
+    </div>
+    <p class="gal-intro">El dron despega desde el camino público, junto al Lote 18, y avanza
+      hacia el norte por el camino interior hasta el deslinde con las casas, donde está el
+      Lote 2. Los pares quedan al poniente, los impares hacia el camino.</p>
+
+    <div class="visor">
+      <video id="vid" src="video/aereo-largo.mp4" playsinline muted loop preload="auto"
+             controls poster="images/aereas/largo-01.jpg"></video>
+      <svg id="ov" viewBox="0 0 1 0.5625" preserveAspectRatio="none" aria-hidden="true"></svg>
+    </div>
+
+    <div class="mandos">
+      <label><input type="checkbox" id="ver" checked> Mostrar el plano</label>
+      <label>Intensidad <input type="range" id="op" min="15" max="100" value="82"></label>
+      <div class="gal-leyenda">
+        <span><i class="sw sw-disponible"></i>Disponible · <span data-cifra="disponibles">—</span></span>
+        <span><i class="sw sw-vendido"></i>Vendido · <span data-cifra="vendidos">—</span></span>
+      </div>
+    </div>
+
+    <p class="gal-aviso"><b>Calce referencial.</b> El plano se proyecta sobre la toma a partir
+      del eje del camino interior y del punto de fuga. Los lotes se reparten por área acumulada,
+      con los cortes perpendiculares al eje, tomando el perfil de la franja de las cotas del
+      plano inscrito: el fondo baja de unos 94 m en el extremo norte a unos 55 m junto al camino
+      público, y los frentes crecen de 58,87 a 91,02 compensando. Por eso las parcelas se ven de
+      dimensiones distintas aunque su superficie sea pareja. Aun así sirve para ubicarse, no para
+      medir: los deslindes que mandan son los del
+      <a href="index.html#plano">plano de subdivisión inscrito</a>, topografiados en terreno.</p>
+  </section>
+
+  <section class="gal-seccion">
+    <div class="gal-encabeza">
+      <h2>Las tomas</h2>
+      <span class="rotulo">Material original</span>
+    </div>
+    <p class="gal-intro">Los dos archivos que salieron del dron, con la corrección de color del
+      set — pasto más verde, cielo más azul, algo más de contraste.</p>
+
+    <div class="tomas">
+      <article class="toma">
+        <button class="cargar" type="button" id="cargar">
+          <img src="images/aereas/largo-01.jpg" alt="Primer fotograma del recorrido por el camino interior" loading="lazy">
+          <span>▶ Ver la toma</span>
+        </button>
+        <video id="toma-larga" playsinline muted loop controls preload="none" hidden></video>
+        <div class="toma-pie">
+          <h3>Recorrido por el camino interior</h3>
+          <p>El eje del loteo de punta a punta, desde el camino público hasta el deslinde norte.
+             Es la toma que se usa de fondo en la portada.</p>
+          <div class="specs"><i>34,9 s</i><i>3840×2160 · 60 fps</i><i>color corregido</i></div>
+        </div>
+      </article>
+
+      <article class="toma">
+        <video src="video/aereo-corto.mp4" playsinline muted loop controls preload="none"
+               poster="images/aereas/corto-02.jpg"></video>
+        <div class="toma-pie">
+          <h3>El loteo desde el camino público</h3>
+          <p>Vista de contexto: el camino público cruzando en primer plano y el loteo entrando
+             hacia el norte, con el pueblo y la cordillera al fondo.</p>
+          <div class="specs"><i>4,2 s</i><i>3840×2160 · 60 fps</i><i>color corregido</i></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="gal-seccion">
+    <div class="gal-encabeza">
+      <h2>Hoja de contacto</h2>
+      <span class="rotulo">11 fotogramas</span>
+    </div>
+    <p class="gal-intro">Fotogramas extraídos de las dos tomas, con el segundo exacto en que
+      aparecen. Toca cualquiera para verlo completo.</p>
+
+    <div class="contacto-hoja" id="hoja">
+      <button class="frame" type="button"><img src="images/aereas/largo-01.jpg" alt="Toma larga, segundo 00:01" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:01</span></button>
+      <button class="frame" type="button"><img src="images/aereas/largo-06.jpg" alt="Toma larga, segundo 00:06" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:06</span></button>
+      <button class="frame" type="button"><img src="images/aereas/largo-11.jpg" alt="Toma larga, segundo 00:11" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:11</span></button>
+      <button class="frame" type="button"><img src="images/aereas/largo-16.jpg" alt="Toma larga, segundo 00:16" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:16</span></button>
+      <button class="frame" type="button"><img src="images/aereas/largo-21.jpg" alt="Toma larga, segundo 00:21" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:21</span></button>
+      <button class="frame" type="button"><img src="images/aereas/largo-26.jpg" alt="Toma larga, segundo 00:26" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:26</span></button>
+      <button class="frame" type="button"><img src="images/aereas/largo-31.jpg" alt="Toma larga, segundo 00:31" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:31</span></button>
+      <button class="frame" type="button"><img src="images/aereas/largo-34.jpg" alt="Toma larga, segundo 00:34" loading="lazy" width="1200" height="675"><span class="tc"><em>larga</em>00:34</span></button>
+      <button class="frame" type="button"><img src="images/aereas/corto-00.jpg" alt="Toma corta, segundo 00:00" loading="lazy" width="1200" height="675"><span class="tc"><em>corta</em>00:00</span></button>
+      <button class="frame" type="button"><img src="images/aereas/corto-02.jpg" alt="Toma corta, segundo 00:02" loading="lazy" width="1200" height="675"><span class="tc"><em>corta</em>00:02</span></button>
+      <button class="frame" type="button"><img src="images/aereas/corto-04.jpg" alt="Toma corta, segundo 00:04" loading="lazy" width="1200" height="675"><span class="tc"><em>corta</em>00:04</span></button>
+    </div>
+  </section>
+
+  <section class="gal-cierre">
+    <div>
+      <h2>¿Quieres verlo en terreno?</h2>
+      <p>Venta directa del propietario. Coordinamos la visita cuando te acomode.</p>
+    </div>
+    <div class="gal-cierre-acciones">
+      <a class="btn btn-greda" href="index.html#parcelas">Ver lotes disponibles</a>
+      <a class="btn btn-linea" data-wa href="index.html#contacto" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Fotograma ampliado">
+  <button class="lupa-cerrar" id="lupa-cerrar" type="button" aria-label="Cerrar">×</button>
+  <img id="lupa-img" src="" alt="">
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/galeria.js"></script>
+</body>
+</html>

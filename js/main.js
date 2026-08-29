@@ -356,7 +356,6 @@
       if (!a.textContent.trim()) a.textContent = L.telefono;
     });
     $$('[data-maps]').forEach(function (a) { a.href = L.mapsUrl; });
-    $$('[data-galeria]').forEach(function (a) { a.href = L.galeriaUrl; });
     $$('[data-anio]').forEach(function (n) { n.textContent = '2026'; });
   }
 
