@@ -8,3 +8,7 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Dependencias de test (playwright), no son parte del sitio
+node_modules/
+package-lock.json
