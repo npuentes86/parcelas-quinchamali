@@ -26,6 +26,11 @@ window.LOTEO = {
   vendedorRol: 'Propietario — Loteo Santa Rita',
   mapsUrl: 'https://maps.app.goo.gl/z5vMNq7yuHu4amJP6',
 
+  /* Galería aérea: las tomas de dron con el plano de los lotes calzado
+     encima. Se publica aparte como Artifact; se genera con
+     galeria/preparar.sh + galeria/armar.py. */
+  galeriaUrl: 'https://claude.ai/code/artifact/52f6c109-118d-445a-97a5-5b34e4bfbd31',
+
   /* Estado por lote. Fila según el plano de subdivisión:
      los lotes pares quedan al interior, los impares hacia el camino. */
   lotes: [

@@ -12,3 +12,8 @@ dist/
 
 # copia intacta del zip original, solo local
 _original/
+
+# material y salida de la galería aérea (los genera galeria/preparar.sh
+# y galeria/armar.py a partir de las tomas originales del dron)
+galeria/gal/
+galeria/vuelo-santa-rita.html

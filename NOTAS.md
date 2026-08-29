@@ -13,6 +13,10 @@ js/main.js          plano interactivo, filtros, conmutador UF/pesos, formulario
 images/             logo, plano de subdivisión, og-image, fotograma del dron
 video/              terreno-dron.mp4 — toma aérea de fondo del hero
 build.py            empaqueta todo en dist/sitio.html (autocontenido, para el Artifact)
+galeria/            galería aérea, se publica como Artifact aparte
+  preparar.sh       comprime las tomas del dron y saca los fotogramas (aplica el grade)
+  vuelo.tpl.html    plantilla: visor con el plano superpuesto, tomas y hoja de contacto
+  armar.py          incrusta el material y arma galeria/vuelo-santa-rita.html
 dist/sitio.html     archivo publicado
 _original/          el zip que trajiste, sin tocar
 ```
@@ -60,6 +64,43 @@ Cerrados sin acción, por decisión tuya del 23-08-2026:
 - **Número de resolución del SAG** en el sitio: no se agrega.
 - **Estudio de napa:** no existe. Por eso el texto del agua habla de *factibilidad*, no de un
   estudio, y deja la perforación a cargo del comprador.
+
+## Galería aérea
+
+Vive en `galeria/` y se publica como un **Artifact aparte** del sitio:
+https://claude.ai/code/artifact/52f6c109-118d-445a-97a5-5b34e4bfbd31
+
+El sitio la enlaza desde la navegación y desde la sección del plano. La URL está en
+`js/datos.js` como `galeriaUrl` y se inyecta con `[data-galeria]`, igual que `mapsUrl`.
+
+**Para regenerarla:**
+
+```
+./galeria/preparar.sh ~/Downloads/DJI_0311_00000325.mp4 ~/Downloads/DJI_0320_00000420.mp4
+python3 galeria/armar.py
+```
+
+Y republicar `galeria/vuelo-santa-rita.html` sobre la MISMA URL. `galeria/gal/` y el HTML
+armado no se versionan: se regeneran de las tomas originales, que no están en el repo.
+
+**El plano sobre el video.** No es un video con los lotes quemados: es un SVG proyectado en
+el navegador contra el tiempo del video, con una cámara estenopeica sobre el plano de suelo
+(`x = VPx + S·X/z`, `y = VPy + K/z`). Los parámetros se ajustaron contra fotogramas reales —
+el eje calza con el camino interior y a los 31 s el Lote 2 cae sobre el deslinde norte.
+
+Los lotes se reparten **por área acumulada con cortes perpendiculares al eje**, con el perfil
+de la franja tomado de las cotas del plano inscrito: el fondo baja de ~94 m en el norte a
+~55 m junto al camino público y los frentes crecen de 58,87 a 91,02 compensando.
+
+**Ojo con la superficie.** Existe una versión previa (`loteo_v3`) hecha en otra máquina cuya
+escala px→m² sale de *suponer* que los 17 lotes suman 85.000 m², y que después desliza los
+deslindes hasta que la cuenta cuadre. Esa derivación es circular. Pero las cotas del plano lo
+respaldan por su cuenta: frente × fondo lote a lote da entre 4.900 y 5.500 m², y ~85.000 m²
+en total. La cifra es buena; el camino del v3 para llegar a ella, no.
+
+**Corrección de color.** Las tomas llevan el grade del set, definido en la máquina
+"Escritorio": `eq → selectivecolor → curves`, en ese orden, sin LUT (hornearla a Hald CLUT
+falla por espacio de color: la cadena trabaja en YUV). Está literal en `preparar.sh`.
 
 ## Decisiones de esta versión
 

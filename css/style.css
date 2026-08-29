@@ -180,6 +180,19 @@ h1,h2,h3{font-family:var(--serif);font-variation-settings:"SOFT" 0,"WONK" 1;text
   body{padding-bottom:66px}
 }
 
+/* ── llamada a la galería aérea ───────────────────────────── */
+.galeria-cta{
+  display:flex; flex-direction:column; gap:5px;
+  margin-top:22px; padding:18px 20px;
+  background:var(--superficie-2); border:1px solid var(--linea-fuerte);
+  border-left:3px solid var(--greda); border-radius:0 var(--radio-sm) var(--radio-sm) 0;
+  text-decoration:none; color:var(--tinta);
+  transition:background .18s, transform .18s;
+}
+.galeria-cta:hover{background:var(--superficie); transform:translateX(2px)}
+.galeria-cta b{font-family:var(--serif); font-size:1.16rem; font-weight:600}
+.galeria-sub{font-size:.88rem; color:var(--tinta-suave); line-height:1.5}
+
 /* ── hero ─────────────────────────────────────────────────── */
 .hero{
   position:relative;
