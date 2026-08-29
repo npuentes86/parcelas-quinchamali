@@ -111,10 +111,17 @@ actualiza sola cuando cambia el estado de uno. El color solo separa pares (verde
 de impares (naranjo, hacia el camino), y la página remite al catálogo para la disponibilidad.
 Cambiar los polígonos exige re-renderizar en la máquina "Escritorio".
 
-**Y una salvedad de fondo.** `equal_area_lots` dibuja las 17 parcelas de igual superficie, pero
-las cotas del plano inscrito van de 5.526 a 4.909 m² — un 12% entre el mayor y el menor, y la
-brecha crece hacia el norte. Los deslindes del video son la idealización, no las medidas. Está
+**Y una salvedad de fondo.** `equal_area_lots` dibuja las 17 parcelas idénticas, pero en el
+plano inscrito no todas tienen la misma forma: el loteo se angosta hacia el sur y el frente sobre
+el camino crece donde el fondo se acorta. Los deslindes del video son una aproximación. Está
 dicho en el texto de la sección y en el banner del propio video.
+
+**Superficie: todas ≈ 5.000 m².** Es el mínimo legal de este tipo de subdivisión, así que ninguna
+parcela puede ser menor — dato del propietario, 29-08-2026. En algún momento estimé superficies
+lote a lote multiplicando dos cotas del escaneo como si fueran rectángulos, y salieron valores
+bajo los 5.000. **Ese cálculo no vale**: los lotes son cuadriláteros irregulares y las cotas se
+leen al límite en el escaneo, así que el error de medición se come la diferencia. No repetir ese
+cálculo ni citar esas cifras en ninguna parte.
 
 **Corrección de color.** Las tomas llevan el grade del set, definido en la máquina
 "Escritorio": `eq → selectivecolor → curves`, en ese orden, sin LUT (hornearla a Hald CLUT
