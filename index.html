@@ -9,14 +9,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#3a3f26">
+<link rel="canonical" href="https://parcelasquinchamali.cl/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Parcelas Santa Rita">
 <meta property="og:title" content="Parcelas Santa Rita — Quinchamalí, Ñuble">
 <meta property="og:description" content="Parcelas de agrado en Quinchamalí, Chillán. 17 lotes, 12 disponibles. Venta directa, acceso por camino público.">
 <meta property="og:locale" content="es_CL">
-<meta property="og:url" content="https://npuentes86.github.io/parcelas-quinchamali/">
-<meta property="og:image" content="https://npuentes86.github.io/parcelas-quinchamali/images/og-image.jpg">
+<meta property="og:url" content="https://parcelasquinchamali.cl/">
+<meta property="og:image" content="https://parcelasquinchamali.cl/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -104,7 +105,7 @@
     <div class="description">
       <h2>Sobre el loteo</h2>
       <p>Quinchamalí, en la Región de Ñuble, ha sido durante generaciones tierra de trigo, viñas y greda — hoy también un lugar donde familias de Chillán y Concepción compran su primer terreno de descanso. El loteo se ubica a 20 minutos de Chillán y 12 minutos de la Ruta 5, con vista abierta al valle y la cordillera.</p>
-      <p>Los 14 lotes disponibles van desde 5.000 m² hasta 20.000 m², todos con acceso directo por camino público, factibilidad de agua de pozo verificada y título de dominio saneado — sin comunidades ni copropiedad. Ideal para segunda vivienda, proyecto agrícola a pequeña escala o inversión de largo plazo.</p>
+      <p>Los <span data-count="disponibles-texto">12</span> lotes disponibles van desde 5.000 m² hasta 20.000 m², todos con acceso directo por camino público, factibilidad de agua de pozo verificada y título de dominio saneado — sin comunidades ni copropiedad. Ideal para segunda vivienda, proyecto agrícola a pequeña escala o inversión de largo plazo.</p>
     </div>
   </section>
 
@@ -115,7 +116,7 @@
       <p>Precios en UF, actualizados al 17 de agosto de 2026. Financiamiento directo hasta 24 meses.</p>
     </div>
 
-    <div class="parcel-grid">
+    <div class="parcel-grid" data-parcel-grid>
       <article class="parcel-card">
         <div class="parcel-status status-available">Disponible</div>
         <h3>Lote 3</h3>
@@ -124,7 +125,7 @@
           <div><dt>Precio</dt><dd>UF 950</dd></div>
           <div><dt>Frente</dt><dd>Camino público</dd></div>
         </dl>
-        <a href="#contacto" class="btn btn-outline">Consultar este lote</a>
+        <a href="#contacto" class="btn btn-outline" data-lote="3">Consultar este lote</a>
       </article>
 
       <article class="parcel-card">
@@ -135,7 +136,7 @@
           <div><dt>Precio</dt><dd>UF 1.480</dd></div>
           <div><dt>Frente</dt><dd>Camino público + vista cordillera</dd></div>
         </dl>
-        <a href="#contacto" class="btn btn-outline">Consultar este lote</a>
+        <a href="#contacto" class="btn btn-outline" data-lote="7">Consultar este lote</a>
       </article>
 
       <article class="parcel-card">
@@ -146,7 +147,7 @@
           <div><dt>Precio</dt><dd>UF 2.100</dd></div>
           <div><dt>Frente</dt><dd>Esquina, dos accesos</dd></div>
         </dl>
-        <a href="#contacto" class="btn btn-outline">Lista de espera</a>
+        <a href="#contacto" class="btn btn-outline" data-lote="9">Lista de espera</a>
       </article>
 
       <article class="parcel-card">
@@ -157,10 +158,10 @@
           <div><dt>Precio</dt><dd>UF 3.400</dd></div>
           <div><dt>Frente</dt><dd>Camino público + orilla de estero</dd></div>
         </dl>
-        <a href="#contacto" class="btn btn-outline">Consultar este lote</a>
+        <a href="#contacto" class="btn btn-outline" data-lote="12">Consultar este lote</a>
       </article>
     </div>
-    <p class="parcel-note">10 lotes adicionales disponibles — foto satelital y deslindes exactos por WhatsApp.</p>
+    <p class="parcel-note"><span data-count="adicionales">8</span> lotes adicionales disponibles — foto satelital y deslindes exactos por WhatsApp.</p>
   </section>
 
 
@@ -168,13 +169,13 @@
   <section class="wrap availability-block" id="disponibilidad">
     <div class="section-head">
       <h2>Disponibilidad de lotes</h2>
-      <p>Hijuela Número Dos — 17 lotes en total. Estado actualizado al 18 de agosto de 2026.</p>
+      <p>Hijuela Número Dos — <span data-count="total">17</span> lotes en total. Estado actualizado al <span data-actualizado>18 de agosto de 2026</span>.</p>
     </div>
 
     <div class="avail-top">
       <div class="avail-counts">
-        <div class="avail-count"><strong>12</strong><span>Disponibles</span></div>
-        <div class="avail-count is-sold"><strong>5</strong><span>Vendidos</span></div>
+        <div class="avail-count"><strong data-count="disponibles">12</strong><span>Disponibles</span></div>
+        <div class="avail-count is-sold"><strong data-count="vendidos">5</strong><span>Vendidos</span></div>
       </div>
       <div class="avail-legend">
         <span><i class="sw sw-disponible"></i>Disponible</span>
@@ -186,7 +187,7 @@
       <div class="avail-panel">
         <h3 class="avail-h3">Plano esquemático</h3>
         <div class="avail-columns">
-          <div class="avail-col avail-col-wide">
+          <div class="avail-col avail-col-wide" data-col="izquierda">
           <div class="lot-bar" data-estado="disponible" style="height:52px"><span class="lot-bar-n">Lote 2</span><span class="lot-bar-tag">Disponible</span></div>
           <div class="lot-bar" data-estado="disponible" style="height:64px"><span class="lot-bar-n">Lote 4</span><span class="lot-bar-tag">Disponible</span></div>
           <div class="lot-bar" data-estado="vendido" style="height:70px"><span class="lot-bar-n">Lote 6</span><span class="lot-bar-tag">Vendido</span></div>
@@ -197,7 +198,7 @@
           <div class="lot-bar" data-estado="disponible" style="height:62px"><span class="lot-bar-n">Lote 16</span><span class="lot-bar-tag">Disponible</span></div>
           <div class="lot-bar" data-estado="vendido" style="height:56px"><span class="lot-bar-n">Lote 18</span><span class="lot-bar-tag">Vendido</span></div>
           </div>
-          <div class="avail-col">
+          <div class="avail-col" data-col="derecha">
           <div class="lot-bar" data-estado="disponible" style="height:64px"><span class="lot-bar-n">Lote 3</span><span class="lot-bar-tag">Disponible</span></div>
           <div class="lot-bar" data-estado="disponible" style="height:56px"><span class="lot-bar-n">Lote 5</span><span class="lot-bar-tag">Disponible</span></div>
           <div class="lot-bar" data-estado="disponible" style="height:58px"><span class="lot-bar-n">Lote 7</span><span class="lot-bar-tag">Disponible</span></div>
@@ -221,7 +222,7 @@
     </div>
 
     <h3 class="avail-h3 avail-h3-spaced">Estado por lote</h3>
-    <div class="avail-chips">
+    <div class="avail-chips" data-chips>
         <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">2</span><span class="lot-chip-tag">Disponible</span></div>
         <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">3</span><span class="lot-chip-tag">Disponible</span></div>
         <div class="lot-chip" data-estado="disponible"><span class="lot-chip-n">4</span><span class="lot-chip-tag">Disponible</span></div>
@@ -241,7 +242,7 @@
         <div class="lot-chip" data-estado="vendido"><span class="lot-chip-n">18</span><span class="lot-chip-tag">Vendido</span></div>
     </div>
 
-    <p class="avail-note">Lotes 6, 13, 15, 17 y 18 ya se encuentran vendidos. El resto continúa disponible para reserva.</p>
+    <p class="avail-note" data-nota-vendidos>Lotes 6, 13, 15, 17 y 18 ya se encuentran vendidos. El resto continúa disponible para reserva.</p>
   </section>
 
   <!-- TRUST -->
@@ -350,14 +351,26 @@
           </div>
         </fieldset>
 
+        <!-- Honeypot antispam: invisible para personas, irresistible para bots. -->
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">No completar este campo</label>
+          <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="lote_interes" value="">
+        <p class="lead-asunto" data-lote-asunto hidden></p>
+
         <button type="submit" class="btn btn-submit">Quiero la ficha del loteo</button>
         <p class="lead-fineprint">Tus datos se usan solo para contactarte sobre este loteo. No hacemos spam ni los compartimos con terceros.</p>
-        <p class="lead-success" id="lead-success" hidden>¡Listo! Te escribimos hoy mismo con toda la información.</p>
+        <p class="lead-success" id="lead-success" role="status" hidden>¡Listo! Te escribimos hoy mismo con toda la información.</p>
+        <p class="lead-error" id="lead-error" role="alert" hidden></p>
       </form>
     </div>
   </section>
 </main>
 
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/lotes.js" defer></script>
 <script src="js/main.js"></script>
 </body>
 </html>

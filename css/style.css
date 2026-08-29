@@ -248,3 +248,9 @@ a{color:inherit}
 .map-link{margin:14px 0 0;font-size:.95rem}
 .map-link a{color:var(--green);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(93,96,60,.35);padding-bottom:1px}
 .map-link a:hover{color:var(--green-dark);border-bottom-color:var(--green-dark)}
+
+/* Honeypot antispam: fuera de pantalla, nunca display:none — algunos bots
+   ignoran los campos ocultos con display:none y así no picarían el anzuelo. */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lead-asunto{margin:0;font-size:.82rem;font-weight:600;color:var(--green-dark)}
+.lead-error{margin:0;padding:12px 14px;background:rgba(184,64,47,.1);color:#b8402f;border-radius:9px;font-weight:600;font-size:.9rem}
