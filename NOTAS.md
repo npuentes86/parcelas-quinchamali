@@ -94,20 +94,27 @@ Los lotes salen de `js/datos.js`, igual que en el resto del sitio: `galeria.js` 
 Escribe `video/aereo-*.mp4` e `images/aereas/*.jpg`, que **sí** se versionan porque Pages los
 sirve tal cual. Son ~7,6 MB en total.
 
-**El plano sobre el video.** No es un video con los lotes quemados: es un SVG proyectado en el
-navegador contra el tiempo del video, con una cámara estenopeica sobre el plano de suelo
-(`x = VPx + S·X/z`, `y = VPy + K/z`). Los parámetros se ajustaron contra fotogramas reales —
-el eje calza con el camino interior y a los 31 s el Lote 2 cae sobre el deslinde norte.
+**El plano sobre el video.** `video/plano-sobre-vuelo.mp4` — los lotes van **grabados en la
+imagen**, no dibujados en el navegador. Sale de `npuentes86/loteo-overlay` (render3.py, OpenCV):
+homografía calzada al primer fotograma y propagada con el movimiento de cámara. La fuente es
+DJI_0310 corregido (drone04, 20 s), que es una tercera toma distinta de las dos de la sección
+"Las tomas". El original de 22 MB se recomprime a CRF 26 → 5,7 MB, sin pérdida visible en los
+rótulos.
 
-Los lotes se reparten **por área acumulada con cortes perpendiculares al eje**, con el perfil
-de la franja tomado de las cotas del plano inscrito: el fondo baja de ~94 m en el norte a
-~55 m junto al camino público y los frentes crecen de 58,87 a 91,02 compensando.
+Hubo antes una versión que dibujaba el plano en el navegador con SVG proyectado (cámara
+estenopeica sobre plano de suelo). **Se descartó: el calce se desviaba a media toma.** Asumía
+velocidad constante del dron y solo coincidía en los extremos, que fue justo donde la verifiqué
+al principio. Si alguna vez se retoma esa vía, el problema a resolver es ese, no los parámetros.
 
-**Ojo con la superficie.** Existe una versión previa (`loteo_v3`, hecha en la máquina
-"Escritorio") cuya escala px→m² sale de *suponer* que los 17 lotes suman 85.000 m², y que
-después desliza los deslindes hasta que la cuenta cuadre. Esa derivación es circular. Pero las
-cotas del plano lo respaldan por su cuenta: frente × fondo lote a lote da entre 4.900 y
-5.500 m², y ~85.000 m² en total. La cifra es buena; el camino del v3 para llegar a ella, no.
+**Lo que el video quemado cuesta.** No lee `datos.js`: no distingue lotes vendidos y no se
+actualiza sola cuando cambia el estado de uno. El color solo separa pares (verde, al poniente)
+de impares (naranjo, hacia el camino), y la página remite al catálogo para la disponibilidad.
+Cambiar los polígonos exige re-renderizar en la máquina "Escritorio".
+
+**Y una salvedad de fondo.** `equal_area_lots` dibuja las 17 parcelas de igual superficie, pero
+las cotas del plano inscrito van de 5.526 a 4.909 m² — un 12% entre el mayor y el menor, y la
+brecha crece hacia el norte. Los deslindes del video son la idealización, no las medidas. Está
+dicho en el texto de la sección y en el banner del propio video.
 
 **Corrección de color.** Las tomas llevan el grade del set, definido en la máquina
 "Escritorio": `eq → selectivecolor → curves`, en ese orden, sin LUT (hornearla a Hald CLUT

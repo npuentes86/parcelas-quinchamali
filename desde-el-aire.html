@@ -44,8 +44,8 @@
 
     <div class="gal-datos">
       <div class="gal-dato"><b><span data-cifra="total">17</span></b><small>parcelas de <span data-cifra="superficie">≈ 5.000 m²</span></small></div>
-      <div class="gal-dato"><b>2</b><small>tomas de dron</small></div>
-      <div class="gal-dato"><b>39<span class="u">s</span></b><small>de vuelo en total</small></div>
+      <div class="gal-dato"><b>3</b><small>tomas de dron</small></div>
+      <div class="gal-dato"><b>59<span class="u">s</span></b><small>de vuelo en total</small></div>
       <div class="gal-dato"><b>4K<span class="u">60</span></b><small>original, 3840×2160</small></div>
     </div>
   </header>
@@ -53,34 +53,33 @@
   <section class="gal-seccion">
     <div class="gal-encabeza">
       <h2>El plano sobre el vuelo</h2>
-      <span class="rotulo">Toma larga · 35 s</span>
+      <span class="rotulo">20 s · calce por homografía</span>
     </div>
-    <p class="gal-intro">El dron despega desde el camino público, junto al Lote 18, y avanza
-      hacia el norte por el camino interior hasta el deslinde con las casas, donde está el
-      Lote 2. Los pares quedan al poniente, los impares hacia el camino.</p>
+    <p class="gal-intro">El dron baja por el eje del loteo hacia el camino público, con las
+      diecisiete parcelas dibujadas sobre el terreno. Los pares, en verde, quedan al poniente;
+      los impares, en naranjo, hacia el camino. El Lote 2 está en el extremo norte, junto a las
+      casas, y el 18 llega hasta el camino público.</p>
 
     <div class="visor">
-      <video id="vid" src="video/aereo-largo.mp4" playsinline muted loop preload="auto"
-             controls poster="images/aereas/largo-01.jpg"></video>
-      <svg id="ov" viewBox="0 0 1 0.5625" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <video src="video/plano-sobre-vuelo.mp4" playsinline muted loop autoplay controls
+             preload="auto" poster="images/aereas/plano-13.jpg"></video>
     </div>
 
     <div class="mandos">
-      <label><input type="checkbox" id="ver"> Mostrar el plano</label>
-      <label>Intensidad <input type="range" id="op" min="15" max="100" value="82"></label>
       <div class="gal-leyenda">
-        <span><i class="sw sw-disponible"></i>Disponible · <span data-cifra="disponibles">—</span></span>
-        <span><i class="sw sw-vendido"></i>Vendido · <span data-cifra="vendidos">—</span></span>
+        <span><i class="sw sw-pares"></i>Pares · al poniente</span>
+        <span><i class="sw sw-impares"></i>Impares · hacia el camino</span>
       </div>
+      <p class="gal-nota">Qué lote sigue disponible está en el
+        <a href="index.html#parcelas">catálogo</a> — el video no distingue vendidos.</p>
     </div>
 
-    <p class="gal-aviso"><b>Calce referencial.</b> El plano se proyecta sobre la toma a partir
-      del eje del camino interior y del punto de fuga. Los lotes se reparten por área acumulada,
-      con los cortes perpendiculares al eje, tomando el perfil de la franja de las cotas del
-      plano inscrito: el fondo baja de unos 94 m en el extremo norte a unos 55 m junto al camino
-      público, y los frentes crecen de 58,87 a 91,02 compensando. Por eso las parcelas se ven de
-      dimensiones distintas aunque su superficie sea pareja. Aun así sirve para ubicarse, no para
-      medir: los deslindes que mandan son los del
+    <p class="gal-aviso"><b>Calce referencial.</b> Los polígonos se proyectan sobre la toma con
+      una homografía calzada al primer fotograma y propagada con el movimiento de la cámara, y
+      quedan grabados en el video. El reparto dibuja las diecisiete parcelas de igual superficie;
+      las cotas del plano inscrito, en cambio, van de 5.526 a 4.909 m² según el lote, así que los
+      deslindes que se ven son una idealización y la diferencia crece hacia el norte. Sirve para
+      ubicarse, no para medir: los que mandan son los del
       <a href="index.html#plano">plano de subdivisión inscrito</a>, topografiados en terreno.</p>
   </section>
 
@@ -89,16 +88,14 @@
       <h2>Las tomas</h2>
       <span class="rotulo">Material original</span>
     </div>
-    <p class="gal-intro">Los dos archivos que salieron del dron, con la corrección de color del
-      set — pasto más verde, cielo más azul, algo más de contraste.</p>
+    <p class="gal-intro">Los archivos que salieron del dron, con la corrección de color del set
+      — pasto más verde, cielo más azul, algo más de contraste. El video de arriba usa una tercera
+      toma, de 20 s, sobre la que se calzó el plano.</p>
 
     <div class="tomas">
       <article class="toma">
-        <button class="cargar" type="button" id="cargar">
-          <img src="images/aereas/largo-01.jpg" alt="Primer fotograma del recorrido por el camino interior" loading="lazy">
-          <span>▶ Ver la toma</span>
-        </button>
-        <video id="toma-larga" playsinline muted loop controls preload="none" hidden></video>
+        <video src="video/aereo-largo.mp4" playsinline muted loop controls preload="none"
+               poster="images/aereas/largo-01.jpg"></video>
         <div class="toma-pie">
           <h3>Recorrido por el camino interior</h3>
           <p>El eje del loteo de punta a punta, desde el camino público hasta el deslinde norte.

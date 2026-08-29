@@ -46,29 +46,19 @@
   border:1px solid var(--linea-fuerte);box-shadow:var(--sombra);aspect-ratio:16/9;
 }
 .visor video{width:100%;height:100%;display:block;object-fit:cover}
-.visor svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .25s}
-.lote{fill:rgba(154,162,115,.28);stroke:rgba(247,241,230,.9);stroke-width:.0015}
-.lote.vendido{fill:rgba(186,93,59,.32);stroke:rgba(247,241,230,.75)}
-.eje{stroke:rgba(217,138,95,.85);stroke-width:.002;fill:none}
-.num{
-  font-family:var(--sans);font-weight:800;fill:#fff;text-anchor:middle;
-  paint-order:stroke;stroke:rgba(20,23,15,.6);stroke-width:.005;
-}
 
 .mandos{
   display:flex;align-items:center;gap:22px;flex-wrap:wrap;
   margin-top:16px;padding:14px 18px;
   background:var(--superficie);border:1px solid var(--linea);border-radius:var(--radio-sm);
 }
-.mandos label{display:flex;align-items:center;gap:9px;font-size:.86rem;font-weight:500}
-.mandos input[type=range]{accent-color:var(--greda);width:130px}
-.mandos input[type=checkbox]{accent-color:var(--greda);width:17px;height:17px}
-.gal-leyenda{display:flex;gap:16px;margin-left:auto;font-size:.82rem;color:var(--tinta-suave)}
+.gal-leyenda{display:flex;gap:16px;font-size:.82rem;color:var(--tinta-suave)}
 .gal-leyenda span{display:inline-flex;align-items:center;gap:7px}
-/* el muestrario acompaña al relleno del visor, no al del catálogo */
-.gal-leyenda .sw-disponible{background:var(--olivo-claro)}
-.gal-leyenda .sw-vendido{background:var(--greda);border:none}
-@media (max-width:700px){.gal-leyenda{margin-left:0;width:100%}}
+/* los muestrarios repiten los colores que van grabados en el video */
+.sw-pares{background:#57d357}
+.sw-impares{background:#f2a63b}
+.gal-nota{margin:0 0 0 auto;font-size:.82rem;color:var(--tinta-suave)}
+@media (max-width:700px){.gal-nota{margin-left:0}}
 
 .gal-aviso{
   margin-top:18px;padding:14px 16px;font-size:.87rem;line-height:1.55;
