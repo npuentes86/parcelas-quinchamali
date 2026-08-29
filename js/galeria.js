@@ -144,7 +144,12 @@
   }
 
   /* ── 3. mandos ──────────────────────────────────────────── */
-  $('#ver').addEventListener('change', function () {
+  var ver = $('#ver');
+  /* El calce de esta versión está siendo rehecho contra la homografía del
+     render de referencia; hasta entonces el plano arranca apagado y el
+     visitante lo enciende si quiere. */
+  svg.style.display = ver.checked ? '' : 'none';
+  ver.addEventListener('change', function () {
     svg.style.display = this.checked ? '' : 'none';
   });
   $('#op').addEventListener('input', function () {
