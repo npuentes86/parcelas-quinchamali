@@ -332,6 +332,7 @@
       $('#exito-mail').href = mail;
       exito.hidden = false;
       exito.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (window.srLead) window.srLead(d);
       window.open(wa, '_blank', 'noopener');
     });
   }

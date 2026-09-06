@@ -52,6 +52,13 @@ def main() -> int:
     #     sitio: ahí la galería tiene que apuntar al hosting real.
     html = html.replace('"desde-el-aire.html"',
                         '"https://parcelasquinchamali.cl/desde-el-aire.html"')
+    html = html.replace('"privacidad.html"',
+                        '"https://parcelasquinchamali.cl/privacidad.html"')
+
+    # 1d. El pixel de Meta no viaja al Artifact: la CSP bloquea
+    #     connect.facebook.net, así que el script fallaría en silencio y
+    #     además dejaría un <script src> relativo que no resuelve.
+    html = html.replace('<script src="js/pixel.js"></script>\n', "")
 
     # 2. CSS y JS → en línea
     html = html.replace(
