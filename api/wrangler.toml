@@ -1,0 +1,28 @@
+# Worker de captación de consultas para parcelasquinchamali.cl
+#
+# El sitio es estático y vive en GitHub Pages: este Worker NO sirve páginas,
+# solo expone POST /api/lead y escribe en D1. Por eso no hay binding ASSETS
+# ni run_worker_first, que es donde se enredó el Worker de la academia.
+#
+# No usa secrets. Si algún día se agrega aviso por correo, la clave va con
+# `wrangler secret put`, nunca en este archivo.
+
+name = "parcelas-leads"
+main = "src/index.ts"
+compatibility_date = "2026-09-10"
+
+# Se deja viva la URL de workers.dev para poder probar el Worker sin depender
+# del DNS del dominio.
+workers_dev = true
+
+# El apex del dominio apunta a GitHub Pages y no pasa por Cloudflare. Este
+# subdominio sí es de Cloudflare: custom_domain hace que Cloudflare cree el
+# registro y emita el certificado.
+[[routes]]
+pattern = "api.parcelasquinchamali.cl"
+custom_domain = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "parcelas-leads"
+database_id = "6aec844c-9dcb-4e88-81a6-61228b4b5025"

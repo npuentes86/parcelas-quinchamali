@@ -67,6 +67,52 @@ Cerrados sin acción, por decisión tuya del 23-08-2026:
 - **Estudio de napa:** no existe. Por eso el texto del agua habla de *factibilidad*, no de un
   estudio, y deja la perforación a cargo del comprador.
 
+## Medición y consultas
+
+Hasta el 10-09-2026 el sitio no medía nada y ninguna consulta quedaba guardada.
+Ahora hay dos piezas, las dos en la cuenta de Cloudflare del propietario.
+
+**Visitas: Cloudflare Web Analytics.** Instalación manual (el snippet JS va en el
+`<head>` de las tres páginas), no la automática: el dominio resuelve directo a
+GitHub Pages y no pasa por el proxy de Cloudflare, así que la inyección
+automática nunca se dispararía. `build.py` no necesitó cambios, porque el paso 3
+rehace el `<head>` del Artifact con solo título, tipografías y `<style>`: el
+beacon se cae solo, igual que el pixel.
+
+**Consultas: Worker `parcelas-leads` + D1 `parcelas-leads`.** Código en `api/`.
+Expone `POST /api/lead` en `api.parcelasquinchamali.cl` y escribe una fila por
+consulta enviada. No sirve páginas: el sitio sigue entero en GitHub Pages.
+
+Lo importante del diseño: la fila se escribe **antes** de abrir WhatsApp, y el
+navegador **no espera la respuesta** (`fetch` con `keepalive`, sin `await`).
+Son las dos cosas a la vez: se registra también la consulta de quien nunca llega
+a mandar el mensaje, que es el lead que antes se perdía entero, y `window.open`
+sigue ocurriendo dentro del gesto de la persona, que es lo único que impide que
+el navegador lo bloquee. Si el Worker se cae, el formulario funciona como antes.
+
+A propósito **no** se dispara el evento Lead de la API de conversiones de Meta.
+`js/pixel.js` ya lo manda desde el navegador; sumar el lado servidor con el
+mismo pixel duplicaría la cuenta.
+
+Dentro del Artifact el envío al Worker falla en silencio, porque la CSP bloquea
+los hosts externos. No se limpia en `build.py` a propósito: está envuelto en
+try/catch y el formulario abre WhatsApp igual, que es todo lo que el Artifact
+necesita hacer.
+
+Para leer las consultas no hay endpoint de lectura ni panel: se consulta la base
+directamente, con el conector de Cloudflare o con
+`wrangler d1 execute parcelas-leads --remote --command "SELECT ..."`. Menos
+superficie que exponer un GET con clave.
+
+`privacidad.html` se corrigió el mismo día: decía que el formulario no mandaba
+nada a ningún servidor, y eso dejó de ser cierto en cuanto se guardó la primera
+fila.
+
+**`_config.yml`.** GitHub Pages publicaba todo el repo, `NOTAS.md` y `build.py`
+incluidos, que se podían bajar desde el dominio. Ahora hay una lista de
+exclusión para los archivos de trabajo. Si agregas una carpeta que no es parte
+del sitio, súmala ahí.
+
 ## Galería aérea
 
 `desde-el-aire.html` — **una página del sitio**, servida por GitHub Pages en

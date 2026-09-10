@@ -416,6 +416,13 @@ data-cf-beacon='{"token": "f482c94c28a6468ca205fed9da5e6c8a"}'></script>
           <textarea id="f-mensaje" name="mensaje" rows="3" placeholder="¿Cuándo podrían mostrarme el terreno?"></textarea>
         </div>
 
+        <!-- Trampa para bots: invisible y fuera del recorrido del teclado.
+             Si viene con algo escrito, el Worker descarta el envío. -->
+        <div class="trampa" aria-hidden="true">
+          <label for="f-sitio-web">No llenar</label>
+          <input type="text" id="f-sitio-web" name="sitio_web" tabindex="-1" autocomplete="off">
+        </div>
+
         <button type="submit" class="btn btn-greda">Enviar consulta por WhatsApp</button>
         <p class="letra-chica">Tus datos se usan solo para responderte sobre este loteo. No enviamos publicidad ni los compartimos con terceros.</p>
 

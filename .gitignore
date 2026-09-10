@@ -12,3 +12,7 @@ dist/
 
 # copia intacta del zip original, solo local
 _original/
+
+# caché local de wrangler: guarda el id de cuenta, no va al repo
+api/.wrangler/
+api/node_modules/

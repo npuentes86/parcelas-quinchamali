@@ -576,3 +576,7 @@ h1,h2,h3{font-family:var(--serif);font-variation-settings:"SOFT" 0,"WONK" 1;text
 .pie a{color:#dcd8ca;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
 .pie a:hover{color:#fff}
 .pie-marca{font-family:var(--sans);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.76rem;color:#e9e6d9}
+
+/* Trampa para bots del formulario. Fuera de pantalla en vez de display:none,
+   porque algunos bots saltan justamente lo que está oculto de esa forma. */
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}

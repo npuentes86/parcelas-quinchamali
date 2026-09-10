@@ -1,0 +1,14 @@
+# GitHub Pages sirve este repo con Jekyll, y hasta ahora publicaba TODO lo que
+# hay en él: NOTAS.md y build.py se podían bajar desde el dominio.
+#
+# Con el Worker en api/ eso pasó de descuido a problema, así que acá se listan
+# los archivos de trabajo que no son el sitio. Lo que se publica sigue siendo
+# index.html, desde-el-aire.html, privacidad.html y las carpetas css/ js/
+# images/ video/.
+exclude:
+  - api/
+  - migrations/
+  - NOTAS.md
+  - build.py
+  - preparar-aereas.sh
+  - _original/

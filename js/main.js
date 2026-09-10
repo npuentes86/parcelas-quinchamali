@@ -262,6 +262,57 @@
   }
 
   /* ── 7. formulario → WhatsApp / correo ────────────────── */
+
+  /* Worker en Cloudflare, base D1. El envío es a ciegas y a propósito:
+     no se espera la respuesta, porque window.open tiene que ocurrir
+     dentro del gesto de la persona o el navegador lo bloquea. keepalive
+     hace que la petición sobreviva aunque la pestaña se vaya a WhatsApp.
+     Si el Worker está caído, el formulario funciona igual que antes. */
+  var API_CONSULTAS = 'https://api.parcelasquinchamali.cl/api/lead';
+
+  /* Un nonce por carga de página. Junto al hash de lo escrito da una
+     clave que repite si alguien manda dos veces lo mismo (se deduplica)
+     y cambia si edita el lote o el mensaje (es otra consulta). */
+  var NONCE = (window.crypto && crypto.randomUUID)
+    ? crypto.randomUUID().slice(0, 8)
+    : String(Math.random()).slice(2, 10);
+
+  function hash(s) {
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+    return h.toString(36);
+  }
+
+  function guardarConsulta(d) {
+    var q = new URLSearchParams(location.search);
+    var carga = {
+      nombre: d.nombre,
+      email: d.email,
+      telefono: d.telefono,
+      lote: d.lote,
+      mensaje: d.mensaje,
+      sitio_web: d.sitio_web,
+      idempotency_key: NONCE + '.' + hash([d.nombre, d.email, d.telefono, d.lote, d.mensaje].join('|')),
+      utm_source: q.get('utm_source') || '',
+      utm_medium: q.get('utm_medium') || '',
+      utm_campaign: q.get('utm_campaign') || '',
+      utm_content: q.get('utm_content') || '',
+      utm_term: q.get('utm_term') || '',
+      fbclid: q.get('fbclid') || '',
+      referrer: document.referrer || '',
+      landing_path: location.pathname + location.search
+    };
+    try {
+      fetch(API_CONSULTAS, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(carga),
+        keepalive: true,
+        mode: 'cors'
+      })["catch"](function () {});
+    } catch (e) {}
+  }
+
   function pintarFormulario() {
     var form = $('#form-contacto');
     if (!form) return;
@@ -314,7 +365,8 @@
         email: form.elements.email.value.trim(),
         telefono: form.elements.telefono.value.trim(),
         lote: form.elements.lote ? form.elements.lote.value : '',
-        mensaje: form.elements.mensaje ? form.elements.mensaje.value.trim() : ''
+        mensaje: form.elements.mensaje ? form.elements.mensaje.value.trim() : '',
+        sitio_web: form.elements.sitio_web ? form.elements.sitio_web.value : ''
       };
 
       var texto =
@@ -332,6 +384,7 @@
       $('#exito-mail').href = mail;
       exito.hidden = false;
       exito.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      guardarConsulta(d);
       if (window.srLead) window.srLead(d);
       window.open(wa, '_blank', 'noopener');
     });
