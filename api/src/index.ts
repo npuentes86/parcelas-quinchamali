@@ -82,14 +82,32 @@ function origenReferente(valor: string): string {
   }
 }
 
-/* Las mismas reglas que valida el navegador en js/main.js. Se repiten
-   acá porque el navegador se puede saltar. */
+/* Dos clases de consulta, y no se validan igual.
+
+   'formulario' trae nombre, correo y teléfono, y se exigen: son las
+   mismas reglas que corre el navegador en js/main.js, repetidas acá
+   porque el navegador se puede saltar.
+
+   'whatsapp' y 'telefono' son el clic directo en un botón. No hay nada
+   que escribir, así que no hay nada que exigir: la fila vale por el
+   hecho de que alguien salió del sitio a hablar con el propietario. Es
+   el camino que de verdad usa la gente, y el que el pixel pierde cuando
+   el teléfono manda la pestaña al fondo antes de que salga el evento. */
+const ORIGENES_VALIDOS = new Set(['formulario', 'whatsapp', 'telefono']);
+
 function validar(b: Record<string, unknown>): { ok: false; campos: string[] } | { ok: true } {
   const campos: string[] = [];
-  if (texto(b.nombre, LARGO.nombre).length < 2) campos.push('nombre');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(texto(b.email, LARGO.email))) campos.push('email');
-  if (texto(b.telefono, LARGO.telefono).replace(/[^0-9]/g, '').length < 8) campos.push('telefono');
+  const origen = texto(b.origen, 20) || 'formulario';
+
+  if (!ORIGENES_VALIDOS.has(origen)) campos.push('origen');
   if (texto(b.idempotency_key, LARGO.idempotency_key).length < 8) campos.push('idempotency_key');
+
+  if (origen === 'formulario') {
+    if (texto(b.nombre, LARGO.nombre).length < 2) campos.push('nombre');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(texto(b.email, LARGO.email))) campos.push('email');
+    if (texto(b.telefono, LARGO.telefono).replace(/[^0-9]/g, '').length < 8) campos.push('telefono');
+  }
+
   return campos.length ? { ok: false, campos } : { ok: true };
 }
 
@@ -165,7 +183,7 @@ async function manejarLead(request: Request, env: Env, origen: string | null): P
         normalizarTelefono(telefono),
         texto(cuerpo.lote, LARGO.lote),
         texto(cuerpo.mensaje, LARGO.mensaje),
-        'formulario',
+        texto(cuerpo.origen, 20) || 'formulario',
         texto(cuerpo.utm_source, LARGO.utm),
         texto(cuerpo.utm_medium, LARGO.utm),
         texto(cuerpo.utm_campaign, LARGO.utm),

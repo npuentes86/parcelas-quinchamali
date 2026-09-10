@@ -283,8 +283,26 @@
     return h.toString(36);
   }
 
+  /* El clic directo en WhatsApp o en el teléfono es la consulta que de
+     verdad llega: el botón trae el mensaje escrito ("quiero la ficha del
+     loteo") y la persona solo aprieta enviar. Antes esto no quedaba en
+     ninguna parte nuestra, y el pixel lo pierde seguido, porque en el
+     teléfono la app de WhatsApp se toma la pantalla antes de que alcance
+     a salir el evento. keepalive es justamente lo que sobrevive a eso.
+
+     Una fila por botón y por carga de página: volver atrás y tocar el
+     mismo botón otra vez es la misma intención, no dos consultas. */
+  function marcarContacto(a, tipo, i) {
+    a.addEventListener('click', function () {
+      enviarAlWorker({
+        origen: tipo,
+        mensaje: 'clic directo: ' + (a.textContent.trim() || tipo).slice(0, 60),
+        idempotency_key: NONCE + '.' + tipo + '.' + i
+      });
+    });
+  }
+
   function guardarConsulta(d) {
-    var q = new URLSearchParams(location.search);
     var carga = {
       nombre: d.nombre,
       email: d.email,
@@ -292,16 +310,25 @@
       lote: d.lote,
       mensaje: d.mensaje,
       sitio_web: d.sitio_web,
-      idempotency_key: NONCE + '.' + hash([d.nombre, d.email, d.telefono, d.lote, d.mensaje].join('|')),
-      utm_source: q.get('utm_source') || '',
-      utm_medium: q.get('utm_medium') || '',
-      utm_campaign: q.get('utm_campaign') || '',
-      utm_content: q.get('utm_content') || '',
-      utm_term: q.get('utm_term') || '',
-      fbclid: q.get('fbclid') || '',
-      referrer: document.referrer || '',
-      landing_path: location.pathname + location.search
+      idempotency_key: NONCE + '.' + hash([d.nombre, d.email, d.telefono, d.lote, d.mensaje].join('|'))
     };
+    enviarAlWorker(carga);
+  }
+
+  /* Común a los dos caminos. A ciegas a propósito: no se espera la
+     respuesta, porque lo que viene después (abrir WhatsApp) tiene que
+     ocurrir dentro del gesto de la persona. */
+  function enviarAlWorker(carga) {
+    if (!carga.origen) carga.origen = 'formulario';
+    var q = new URLSearchParams(location.search);
+    carga.utm_source = carga.utm_source || q.get('utm_source') || '';
+    carga.utm_medium = carga.utm_medium || q.get('utm_medium') || '';
+    carga.utm_campaign = carga.utm_campaign || q.get('utm_campaign') || '';
+    carga.utm_content = carga.utm_content || q.get('utm_content') || '';
+    carga.utm_term = carga.utm_term || q.get('utm_term') || '';
+    carga.fbclid = carga.fbclid || q.get('fbclid') || '';
+    carga.referrer = carga.referrer || document.referrer || '';
+    carga.landing_path = carga.landing_path || location.pathname + location.search;
     try {
       fetch(API_CONSULTAS, {
         method: 'POST',
@@ -401,13 +428,15 @@
     pintarFormulario();
 
     /* enlaces de WhatsApp genéricos */
-    $$('[data-wa]').forEach(function (a) {
+    $$('[data-wa]').forEach(function (a, i) {
       a.href = waLink('Hola ' + L.vendedor.split(' ')[0] +
         ', vi el sitio de Parcelas Santa Rita y quiero la ficha del loteo en Quinchamalí.');
+      marcarContacto(a, 'whatsapp', i);
     });
-    $$('[data-tel]').forEach(function (a) {
+    $$('[data-tel]').forEach(function (a, i) {
       a.href = 'tel:+' + L.telefonoE164;
       if (!a.textContent.trim()) a.textContent = L.telefono;
+      marcarContacto(a, 'telefono', i);
     });
     $$('[data-maps]').forEach(function (a) { a.href = L.mapsUrl; });
     $$('[data-anio]').forEach(function (n) { n.textContent = '2026'; });

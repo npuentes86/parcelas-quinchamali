@@ -99,6 +99,25 @@ los hosts externos. No se limpia en `build.py` a propósito: está envuelto en
 try/catch y el formulario abre WhatsApp igual, que es todo lo que el Artifact
 necesita hacer.
 
+**El clic directo también se guarda, y es el camino que importa.** Los botones
+de WhatsApp llevan escrito *"vi el sitio de Parcelas Santa Rita y quiero la ficha
+del loteo"*, y ese es literalmente el mensaje que llega. O sea que la gente casi
+no usa el formulario: toca el botón. La primera versión de esto solo enganchaba
+el formulario y por eso no registraba nada. Ahora `marcarContacto()` manda una
+fila con `origen` 'whatsapp' o 'telefono', sin datos de contacto, una por botón y
+por carga de página.
+
+Eso además explica por qué Meta muestra cero. El evento Lead del pixel sí se
+dispara y sí llega (verificado: `ev=Lead` con 200), pero en el teléfono la app de
+WhatsApp se toma la pantalla apenas se toca el enlace, y el evento se pierde
+antes de salir. `keepalive` es justamente lo que sobrevive a eso; el pixel no lo
+usa.
+
+Gotcha de despliegue: después de `wrangler deploy` la versión nueva tarda un
+poco en quedar en todos lados. Un curl inmediato puede contestar con el código
+viejo y hacerte creer que el despliegue falló. Comprobar con
+`workers_get_worker_code` o repetir el curl un minuto después.
+
 Para leer las consultas no hay endpoint de lectura ni panel: se consulta la base
 directamente, con el conector de Cloudflare o con
 `wrangler d1 execute parcelas-leads --remote --command "SELECT ..."`. Menos
