@@ -5,6 +5,10 @@ Ese sitio se armó de forma parecida a este (una página partida en varias,
 publicada desde un repo, con el `<head>` generado por un script), así que varios
 de los problemas que se encontraron allá valía la pena buscarlos acá.
 
+**Estado al 2026-09-26: hecho todo lo que no necesitaba a nadie.** Puntos 1 a 6
+y el 9 están aplicados y en producción. Quedan el 7 (Search Console, necesita a
+Nelson con sesión en Google) y el 8 (peso del video, esperar datos del 7).
+
 Este archivo dice tres cosas: **qué de esa auditoría no aplica acá** (para no
 perder tiempo buscándolo), **en qué estado está este sitio medido de verdad**, y
 **qué falta, por orden de impacto**. Complementa a `NOTAS.md`, que sigue siendo
@@ -72,7 +76,7 @@ y dentro de largo, las tres páginas se enlazan, las imágenes casi todas llevan
 
 ## Pendientes, por orden de impacto
 
-### 1. El título de la home no dice dónde queda
+### 1. ~~El título de la home no dice dónde queda~~ HECHO
 
 Es el peor detalle del sitio y el más barato de arreglar.
 
@@ -95,26 +99,22 @@ tiene que ponerse al día con la página.
 **Ojo con `build.py`:** el título es lo único del `<head>` que sí viaja al
 Artifact (ver más abajo). Cambiarlo cambia también el nombre del Artifact.
 
-### 2. No hay `robots.txt` ni `sitemap.xml`
+### 2. ~~No hay `robots.txt` ni `sitemap.xml`~~ HECHO
 
 Los dos responden 404. Con tres páginas el sitemap no descubre nada que un
 rastreador no encuentre solo, pero es lo que se le entrega a Search Console para
 que informe cobertura, y sin él no hay nada que enviar.
 
-```
-robots.txt
-  User-agent: *
-  Allow: /
-  Sitemap: https://parcelasquinchamali.cl/sitemap.xml
+**Corrección respecto de lo que decía antes este archivo:** el sitemap lleva
+**dos** páginas, no tres. `privacidad.html` ya declara
+`<meta name="robots" content="noindex, follow">`, así que meterla sería pedirle
+a Google que indexe algo que la propia página le dice que no indexe.
 
-sitemap.xml
-  las tres páginas, con <lastmod>
-```
+`robots.txt` se escribió a mano. `sitemap.xml` lo genera `seo.py` con la fecha
+del día. Los dos van en la raíz y se publican: no van en la lista de exclusión
+de `_config.yml` porque son parte del sitio.
 
-Van en la raíz del repo. No hay que tocar `_config.yml` para esto: son parte del
-sitio, no archivos de trabajo.
-
-### 3. Falta el `canonical` en las tres páginas
+### 3. ~~Falta el `canonical` en las tres páginas~~ HECHO
 
 Ninguna lo declara. El hosting ya resuelve las variantes de host, así que el
 riesgo real es bajo, pero es una línea por página y cierra el tema:
@@ -126,7 +126,7 @@ riesgo real es bajo, pero es una línea por página y cierra el tema:
 Decidir si la home canoniza a `/` o a `/index.html`. GitHub Pages sirve las dos.
 Conviene `/` y que `index.html` apunte ahí.
 
-### 4. Cero datos estructurados
+### 4. ~~Cero datos estructurados~~ HECHO
 
 Ninguna página tiene JSON-LD. Para un loteo con precio, superficie y ubicación
 conocidos esto es dejar información sobre la mesa. Lo que corresponde:
@@ -142,7 +142,14 @@ conocidos esto es dejar información sobre la mesa. Lo que corresponde:
 
 **Va en el `<head>`, no en el `<body>`.** Motivo en la sección de restricciones.
 
-### 5. `og:image` apunta a github.io, no al dominio
+Hecho con `seo.py`, que lee `js/datos.js` y reescribe el bloque entre las marcas
+`<!-- seo:jsonld -->` de `index.html`. Genera `RealEstateAgent`, `Place` con las
+coordenadas del enlace de Maps que ya usa el sitio, y `Product` con
+`AggregateOffer`. El precio va en **CLF**, que es el código ISO 4217 de la UF:
+poner "UF" ahí sería inválido y Google descartaría la oferta completa. Correrlo
+después de cada venta, o el conteo de disponibles se queda viejo.
+
+### 5. ~~`og:image` apunta a github.io, no al dominio~~ HECHO
 
 ```
 index.html:  https://npuentes86.github.io/parcelas-quinchamali/images/og-image.jpg
@@ -152,7 +159,7 @@ index.html:  https://npuentes86.github.io/parcelas-quinchamali/images/og-image.j
 dominio propio. Es el mismo error que tenía la academia entre `www` y el apex:
 no rompe nada visible, pero reparte señales entre dos hosts.
 
-### 6. El atributo `lang` no coincide entre páginas
+### 6. ~~El atributo `lang` no coincide entre páginas~~ HECHO
 
 `index.html` y `privacidad.html` declaran `es-CL`. `desde-el-aire.html` declara
 `es`. Dejar `es-CL` en las tres.
@@ -193,11 +200,16 @@ Si se toca: bajar el bitrate del hero antes que la resolución, y considerar un
 póster en JPG para que la primera pintura no espere al video. `preparar-aereas.sh`
 ya hace trabajo de este tipo y es el lugar natural para agregarlo.
 
-### 9. Detalles menores
+### 9. ~~Detalles menores~~ ERAN FALSOS POSITIVOS
 
-- Una imagen sin `alt` en `index.html` y otra en `desde-el-aire.html`.
-- Una imagen sin `width`/`height` en cada una de esas dos páginas. El resto sí
-  las lleva, así que son dos líneas.
+Los dos que había anotado resultaron no ser problemas al mirarlos de cerca:
+
+- La imagen sin `alt` era el `<img>` de 1x1 del pixel de Meta, oculto con
+  `display:none`. Se le puso `alt=""`, que es lo correcto para algo decorativo,
+  y con eso los validadores se callan.
+- La imagen sin `width` era `#lupa-img`, el overlay de la lupa, que arranca con
+  `src=""` y recibe la imagen desde JavaScript. Su tamaño lo pone el CSS.
+  Ponerle `width` fijo sería un error, no un arreglo.
 
 ---
 
@@ -266,6 +278,17 @@ curl -s "https://cloudflare-dns.com/dns-query?name=parcelasquinchamali.cl&type=T
 ```
 
 ---
+
+## Regenerar
+
+```bash
+python3 seo.py     # sitemap.xml + el JSON-LD de index.html, desde js/datos.js
+python3 build.py   # dist/sitio.html para el Artifact (no lleva nada de lo de arriba)
+```
+
+`seo.py` hay que correrlo cada vez que cambie `js/datos.js`, típicamente cuando
+se vende una parcela. No hay build en GitHub Pages que lo haga solo: el
+resultado se commitea.
 
 ## Orden sugerido
 

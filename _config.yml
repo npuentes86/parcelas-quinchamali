@@ -11,5 +11,6 @@ exclude:
   - NOTAS.md
   - SEO.md
   - build.py
+  - seo.py
   - preparar-aereas.sh
   - _original/
