@@ -3,6 +3,9 @@
 Sitio de venta directa del loteo (Hijuela Número Dos).
 Publicado como Artifact: https://claude.ai/code/artifact/02360787-0e71-4dd3-999f-d151ae509740
 
+Ver `SEO.md` para el estado de posicionamiento del sitio, qué falta y qué
+restricciones impone `build.py` al tocar el `<head>`.
+
 ## Estructura
 
 ```

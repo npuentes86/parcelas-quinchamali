@@ -9,6 +9,7 @@ exclude:
   - api/
   - migrations/
   - NOTAS.md
+  - SEO.md
   - build.py
   - preparar-aereas.sh
   - _original/
