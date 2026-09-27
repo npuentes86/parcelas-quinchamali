@@ -5,9 +5,10 @@ Ese sitio se armó de forma parecida a este (una página partida en varias,
 publicada desde un repo, con el `<head>` generado por un script), así que varios
 de los problemas que se encontraron allá valía la pena buscarlos acá.
 
-**Estado al 2026-09-26: hecho todo lo que no necesitaba a nadie.** Puntos 1 a 6
-y el 9 están aplicados y en producción. Quedan el 7 (Search Console, necesita a
-Nelson con sesión en Google) y el 8 (peso del video, esperar datos del 7).
+**Estado al 2026-09-26: puntos 1 a 7 y 9 cerrados.** Todo aplicado y en
+producción, incluida la verificación en Search Console. Queda solo el 8 (peso
+del video), y ese se decide con los datos que empiece a entregar Search Console
+en 24 a 48 horas, no antes.
 
 Este archivo dice tres cosas: **qué de esa auditoría no aplica acá** (para no
 perder tiempo buscándolo), **en qué estado está este sitio medido de verdad**, y
@@ -164,20 +165,30 @@ no rompe nada visible, pero reparte señales entre dos hosts.
 `index.html` y `privacidad.html` declaran `es-CL`. `desde-el-aire.html` declara
 `es`. Dejar `es-CL` en las tres.
 
-### 7. Search Console sin verificar
+### 7. ~~Search Console sin verificar~~ HECHO
 
 El dominio no tiene **ningún** registro TXT, así que no está verificado. Es
 exactamente el mismo hueco que tenía la academia: sin esto no hay datos de
 consultas, ni informe de cobertura, ni forma de saber si las páginas están
 indexadas o solamente rastreadas.
 
-Verificar por **Dominio** (TXT en Cloudflare, que ya administra la zona aunque
-esté en modo DNS only), no por prefijo de URL. Después enviar el sitemap del
-punto 2.
+Verificado por **Dominio** el 2026-09-26. El registro resuelve en los dos
+resolvers públicos:
 
-Acá no hay GA4 que enlazar, así que el paso termina ahí.
+```
+TXT parcelasquinchamali.cl
+  "google-site-verification=yMBN0pxNqAmesW1JvXNbex1qON3b0K_6U8Of_a3XGe8"
+```
 
-### 8. Peso de los videos
+Por Dominio y no por prefijo de URL a propósito: cubre el apex, www y los dos
+protocolos de una vez.
+
+Acá no hay GA4 que enlazar, así que el paso termina ahí. Lo que sigue es
+esperar: el informe de **Páginas** dice si las dos páginas indexables están
+indexadas o solamente rastreadas, y el de **Consultas** con qué términos
+aparece el sitio. Recién con eso se decide el punto 8.
+
+### 8. Peso de los videos (único pendiente)
 
 21.1 MB de media, casi todo video:
 
@@ -300,8 +311,9 @@ resultado se commitea.
 5. JSON-LD generado desde `js/datos.js` (punto 4).
 6. Video del hero (punto 8), solo si los datos del punto 3 muestran que importa.
 
-Los puntos 1 a 4 se pueden hacer en una sola sesión sin necesitar nada de nadie.
-El punto 7 necesita a Nelson con sesión iniciada en Google.
+Los puntos 1 a 7 quedaron hechos el 2026-09-26. El único que sigue abierto es
+el 8, y a propósito: tocar los videos antes de ver los datos de Search Console
+sería optimizar a ciegas.
 
 Ver `NOTAS.md` para el resto del proyecto: medición de visitas, el Worker de
 leads, y por qué WhatsApp es el camino real y no el formulario.
